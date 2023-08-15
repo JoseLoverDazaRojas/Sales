@@ -31,3 +31,36 @@ C:\Users\programador\Downloads\Especialización en Software ITM\CONSTRUCCIÓN DE
 C:\Users\programador\Downloads\Especialización en Software ITM\CONSTRUCCIÓN DE SOFTWARE\Repositorio\Sales\Sales.API\obj\Debug\net7.0\Sales.API.pdb
 C:\Users\programador\Downloads\Especialización en Software ITM\CONSTRUCCIÓN DE SOFTWARE\Repositorio\Sales\Sales.API\obj\Debug\net7.0\Sales.API.genruntimeconfig.cache
 C:\Users\programador\Downloads\Especialización en Software ITM\CONSTRUCCIÓN DE SOFTWARE\Repositorio\Sales\Sales.API\obj\Debug\net7.0\ref\Sales.API.dll
+C:\Repo\Sales\Sales.API\bin\Debug\net7.0\appsettings.Development.json
+C:\Repo\Sales\Sales.API\bin\Debug\net7.0\appsettings.json
+C:\Repo\Sales\Sales.API\bin\Debug\net7.0\Sales.API.exe
+C:\Repo\Sales\Sales.API\bin\Debug\net7.0\Sales.API.deps.json
+C:\Repo\Sales\Sales.API\bin\Debug\net7.0\Sales.API.runtimeconfig.json
+C:\Repo\Sales\Sales.API\bin\Debug\net7.0\Sales.API.dll
+C:\Repo\Sales\Sales.API\bin\Debug\net7.0\Sales.API.pdb
+C:\Repo\Sales\Sales.API\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Repo\Sales\Sales.API\bin\Debug\net7.0\Microsoft.OpenApi.dll
+C:\Repo\Sales\Sales.API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Repo\Sales\Sales.API\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Repo\Sales\Sales.API\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Repo\Sales\Sales.API\obj\Debug\net7.0\Sales.API.csproj.AssemblyReference.cache
+C:\Repo\Sales\Sales.API\obj\Debug\net7.0\Sales.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repo\Sales\Sales.API\obj\Debug\net7.0\Sales.API.AssemblyInfoInputs.cache
+C:\Repo\Sales\Sales.API\obj\Debug\net7.0\Sales.API.AssemblyInfo.cs
+C:\Repo\Sales\Sales.API\obj\Debug\net7.0\Sales.API.csproj.CoreCompileInputs.cache
+C:\Repo\Sales\Sales.API\obj\Debug\net7.0\Sales.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Repo\Sales\Sales.API\obj\Debug\net7.0\Sales.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Repo\Sales\Sales.API\obj\Debug\net7.0\staticwebassets\msbuild.Sales.API.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Repo\Sales\Sales.API\obj\Debug\net7.0\staticwebassets\msbuild.build.Sales.API.props
+C:\Repo\Sales\Sales.API\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.Sales.API.props
+C:\Repo\Sales\Sales.API\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.Sales.API.props
+C:\Repo\Sales\Sales.API\obj\Debug\net7.0\staticwebassets.pack.json
+C:\Repo\Sales\Sales.API\obj\Debug\net7.0\staticwebassets.build.json
+C:\Repo\Sales\Sales.API\obj\Debug\net7.0\staticwebassets.development.json
+C:\Repo\Sales\Sales.API\obj\Debug\net7.0\scopedcss\bundle\Sales.API.styles.css
+C:\Repo\Sales\Sales.API\obj\Debug\net7.0\Sales.API.csproj.CopyComplete
+C:\Repo\Sales\Sales.API\obj\Debug\net7.0\Sales.API.dll
+C:\Repo\Sales\Sales.API\obj\Debug\net7.0\refint\Sales.API.dll
+C:\Repo\Sales\Sales.API\obj\Debug\net7.0\Sales.API.pdb
+C:\Repo\Sales\Sales.API\obj\Debug\net7.0\Sales.API.genruntimeconfig.cache
+C:\Repo\Sales\Sales.API\obj\Debug\net7.0\ref\Sales.API.dll

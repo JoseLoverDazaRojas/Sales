@@ -1807,11 +1807,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\programador\\Downloads\\Especialización en Software ITM\\CONSTRUCCIÓN DE SOFTWARE\\Repositorio\\Sales\\Sales.WEB\\Sales.WEB.csproj",
+      "projectUniqueName": "C:\\Repo\\Sales\\Sales.WEB\\Sales.WEB.csproj",
       "projectName": "Sales.WEB",
-      "projectPath": "C:\\Users\\programador\\Downloads\\Especialización en Software ITM\\CONSTRUCCIÓN DE SOFTWARE\\Repositorio\\Sales\\Sales.WEB\\Sales.WEB.csproj",
+      "projectPath": "C:\\Repo\\Sales\\Sales.WEB\\Sales.WEB.csproj",
       "packagesPath": "C:\\Users\\programador\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\programador\\Downloads\\Especialización en Software ITM\\CONSTRUCCIÓN DE SOFTWARE\\Repositorio\\Sales\\Sales.WEB\\obj\\",
+      "outputPath": "C:\\Repo\\Sales\\Sales.WEB\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

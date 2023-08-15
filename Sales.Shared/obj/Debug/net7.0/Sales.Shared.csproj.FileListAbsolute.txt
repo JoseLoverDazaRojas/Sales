@@ -9,3 +9,14 @@ C:\Users\programador\Downloads\Especialización en Software ITM\CONSTRUCCIÓN DE
 C:\Users\programador\Downloads\Especialización en Software ITM\CONSTRUCCIÓN DE SOFTWARE\Repositorio\Sales\Sales.Shared\obj\Debug\net7.0\refint\Sales.Shared.dll
 C:\Users\programador\Downloads\Especialización en Software ITM\CONSTRUCCIÓN DE SOFTWARE\Repositorio\Sales\Sales.Shared\obj\Debug\net7.0\Sales.Shared.pdb
 C:\Users\programador\Downloads\Especialización en Software ITM\CONSTRUCCIÓN DE SOFTWARE\Repositorio\Sales\Sales.Shared\obj\Debug\net7.0\ref\Sales.Shared.dll
+C:\Repo\Sales\Sales.Shared\bin\Debug\net7.0\Sales.Shared.deps.json
+C:\Repo\Sales\Sales.Shared\bin\Debug\net7.0\Sales.Shared.dll
+C:\Repo\Sales\Sales.Shared\bin\Debug\net7.0\Sales.Shared.pdb
+C:\Repo\Sales\Sales.Shared\obj\Debug\net7.0\Sales.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repo\Sales\Sales.Shared\obj\Debug\net7.0\Sales.Shared.AssemblyInfoInputs.cache
+C:\Repo\Sales\Sales.Shared\obj\Debug\net7.0\Sales.Shared.AssemblyInfo.cs
+C:\Repo\Sales\Sales.Shared\obj\Debug\net7.0\Sales.Shared.csproj.CoreCompileInputs.cache
+C:\Repo\Sales\Sales.Shared\obj\Debug\net7.0\Sales.Shared.dll
+C:\Repo\Sales\Sales.Shared\obj\Debug\net7.0\refint\Sales.Shared.dll
+C:\Repo\Sales\Sales.Shared\obj\Debug\net7.0\Sales.Shared.pdb
+C:\Repo\Sales\Sales.Shared\obj\Debug\net7.0\ref\Sales.Shared.dll

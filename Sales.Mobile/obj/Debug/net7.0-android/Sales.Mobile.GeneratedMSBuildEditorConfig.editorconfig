@@ -12,33 +12,33 @@ build_property.EnableSingleFileAnalyzer = true
 build_property.EnableTrimAnalyzer = false
 build_property.IncludeAllContentForSelfExtract = 
 build_property.RootNamespace = Sales.Mobile
-build_property.ProjectDir = C:\Users\programador\Downloads\Especialización en Software ITM\CONSTRUCCIÓN DE SOFTWARE\Repositorio\Sales\Sales.Mobile\
+build_property.ProjectDir = C:\Repo\Sales\Sales.Mobile\
 
-[C:/Users/programador/Downloads/Especialización en Software ITM/CONSTRUCCIÓN DE SOFTWARE/Repositorio/Sales/Sales.Mobile/App.xaml]
+[C:/Repo/Sales/Sales.Mobile/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Sales.Mobile.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[C:/Users/programador/Downloads/Especialización en Software ITM/CONSTRUCCIÓN DE SOFTWARE/Repositorio/Sales/Sales.Mobile/AppShell.xaml]
+[C:/Repo/Sales/Sales.Mobile/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Sales.Mobile.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[C:/Users/programador/Downloads/Especialización en Software ITM/CONSTRUCCIÓN DE SOFTWARE/Repositorio/Sales/Sales.Mobile/MainPage.xaml]
+[C:/Repo/Sales/Sales.Mobile/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Sales.Mobile.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[C:/Users/programador/Downloads/Especialización en Software ITM/CONSTRUCCIÓN DE SOFTWARE/Repositorio/Sales/Sales.Mobile/Resources/Styles/Colors.xaml]
+[C:/Repo/Sales/Sales.Mobile/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Sales.Mobile.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[C:/Users/programador/Downloads/Especialización en Software ITM/CONSTRUCCIÓN DE SOFTWARE/Repositorio/Sales/Sales.Mobile/Resources/Styles/Styles.xaml]
+[C:/Repo/Sales/Sales.Mobile/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Sales.Mobile.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml

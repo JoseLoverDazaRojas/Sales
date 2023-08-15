@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "a4+YrGysv7S20BtPqatOAzUCosp1o5IMMRmmolYHmgkh9vqJq6fgbEDAXlXVtqQIB11K5KLX82txHYkmqGRYGw==",
+  "dgSpecHash": "SYqIfytIHEwl0luABmu5dfXbv8paKNwGzJQYZONuHtJUuhpzmmPktTQ8FYhGmeJDCacagZnmACvYPRX2gI1lhA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\programador\\Downloads\\Especialización en Software ITM\\CONSTRUCCIÓN DE SOFTWARE\\Repositorio\\Sales\\Sales.WEB\\Sales.WEB.csproj",
+  "projectFilePath": "C:\\Repo\\Sales\\Sales.WEB\\Sales.WEB.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\programador\\.nuget\\packages\\microsoft.aspnetcore.authorization\\7.0.10\\microsoft.aspnetcore.authorization.7.0.10.nupkg.sha512",
     "C:\\Users\\programador\\.nuget\\packages\\microsoft.aspnetcore.components\\7.0.10\\microsoft.aspnetcore.components.7.0.10.nupkg.sha512",

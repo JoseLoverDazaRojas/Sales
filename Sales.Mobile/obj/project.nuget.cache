@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bCQitv5AFlxPZypOlH8iM0lklOvvGh0BDRGIuVX6og9G53aFnqf80GFI1c+UriKdjJs0TEN8c63JY/i9mIS4VA==",
+  "dgSpecHash": "OPNG1VkvDg0AyV8yyV71Hl9MvqBldRDGYgMXA2+9bVzjxZvnyYbWPJttvaXo5E1RX/zmzRf9/vSMX1Qh0c707Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\programador\\Downloads\\Especialización en Software ITM\\CONSTRUCCIÓN DE SOFTWARE\\Repositorio\\Sales\\Sales.Mobile\\Sales.Mobile.csproj",
+  "projectFilePath": "C:\\Repo\\Sales\\Sales.Mobile\\Sales.Mobile.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\programador\\.nuget\\packages\\googlegson\\2.9.1.1\\googlegson.2.9.1.1.nupkg.sha512",
     "C:\\Users\\programador\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",

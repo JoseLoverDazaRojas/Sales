@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\programador\\Downloads\\Especialización en Software ITM\\CONSTRUCCIÓN DE SOFTWARE\\Repositorio\\Sales\\Sales.API\\Sales.API.csproj": {}
+    "C:\\Repo\\Sales\\Sales.API\\Sales.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\programador\\Downloads\\Especialización en Software ITM\\CONSTRUCCIÓN DE SOFTWARE\\Repositorio\\Sales\\Sales.API\\Sales.API.csproj": {
+    "C:\\Repo\\Sales\\Sales.API\\Sales.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\programador\\Downloads\\Especialización en Software ITM\\CONSTRUCCIÓN DE SOFTWARE\\Repositorio\\Sales\\Sales.API\\Sales.API.csproj",
+        "projectUniqueName": "C:\\Repo\\Sales\\Sales.API\\Sales.API.csproj",
         "projectName": "Sales.API",
-        "projectPath": "C:\\Users\\programador\\Downloads\\Especialización en Software ITM\\CONSTRUCCIÓN DE SOFTWARE\\Repositorio\\Sales\\Sales.API\\Sales.API.csproj",
+        "projectPath": "C:\\Repo\\Sales\\Sales.API\\Sales.API.csproj",
         "packagesPath": "C:\\Users\\programador\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\programador\\Downloads\\Especialización en Software ITM\\CONSTRUCCIÓN DE SOFTWARE\\Repositorio\\Sales\\Sales.API\\obj\\",
+        "outputPath": "C:\\Repo\\Sales\\Sales.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

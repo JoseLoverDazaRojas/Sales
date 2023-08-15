@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Erzfy6GQj7pp1Vzf5pcJgpc1Vu/xtlBCXX5H3JKpY4rTX0k8O/QbbaML1tUkOZdQI/wfaG6rVwU5MmbnRiIyJA==",
+  "dgSpecHash": "cVU34RkCmyDVBXr4P9eSYCykQ3ZHVVZiW0E7R7uYx2laINrHbbwaWH/wuY5SrHAVWhUOKkRNkxU3ek0RJArh5Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\programador\\Downloads\\Especialización en Software ITM\\CONSTRUCCIÓN DE SOFTWARE\\Repositorio\\Sales\\Sales.API\\Sales.API.csproj",
+  "projectFilePath": "C:\\Repo\\Sales\\Sales.API\\Sales.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\programador\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.10\\microsoft.aspnetcore.openapi.7.0.10.nupkg.sha512",
     "C:\\Users\\programador\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

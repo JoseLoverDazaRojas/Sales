@@ -7,8 +7,8 @@
 
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="41286652-47cc-4a45-9c1a-c4908d2e8ece" Publisher="CN=User Name" Version="1.0.0.1" ProcessorArchitecture="x64" />
-  <mp:PhoneIdentity PhoneProductId="B84E76CA-4093-4906-8D1B-9C9B4531F6E4" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="c433eabb-4db2-4d3c-ac1a-8fa0da8cd2c8" Publisher="CN=User Name" Version="1.0.0.1" ProcessorArchitecture="x64" />
+  <mp:PhoneIdentity PhoneProductId="ABFB7B37-4835-4936-8245-59DCE168465C" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Sales.Mobile</DisplayName>
     <PublisherDisplayName>User Name</PublisherDisplayName>

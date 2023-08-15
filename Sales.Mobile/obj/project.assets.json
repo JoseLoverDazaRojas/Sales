@@ -24028,11 +24028,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\programador\\Downloads\\Especialización en Software ITM\\CONSTRUCCIÓN DE SOFTWARE\\Repositorio\\Sales\\Sales.Mobile\\Sales.Mobile.csproj",
+      "projectUniqueName": "C:\\Repo\\Sales\\Sales.Mobile\\Sales.Mobile.csproj",
       "projectName": "Sales.Mobile",
-      "projectPath": "C:\\Users\\programador\\Downloads\\Especialización en Software ITM\\CONSTRUCCIÓN DE SOFTWARE\\Repositorio\\Sales\\Sales.Mobile\\Sales.Mobile.csproj",
+      "projectPath": "C:\\Repo\\Sales\\Sales.Mobile\\Sales.Mobile.csproj",
       "packagesPath": "C:\\Users\\programador\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\programador\\Downloads\\Especialización en Software ITM\\CONSTRUCCIÓN DE SOFTWARE\\Repositorio\\Sales\\Sales.Mobile\\obj\\",
+      "outputPath": "C:\\Repo\\Sales\\Sales.Mobile\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [
