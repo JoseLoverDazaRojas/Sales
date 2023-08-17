@@ -1,1 +1,0 @@
-C:\Repo\Sales\Sales.Mobile\Sales.Mobile.csproj;x64
