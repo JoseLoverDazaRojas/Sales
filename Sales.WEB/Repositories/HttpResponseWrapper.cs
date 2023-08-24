@@ -1,10 +1,27 @@
 ﻿namespace Sales.WEB.Repositories
 {
+
+    #region Import
+
     using System.Net;
 
-    public class HttpResponseWrapper
+    #endregion Import
+
+    /// <summary>
+    /// The class HttpResponseWrapper<T>
+    /// </summary>
+
+    public class HttpResponseWrapper<T>
     {
-        /*
+        #region Attributes
+
+        public bool Error { get; set; }
+        public T? Response { get; set; }
+        public HttpResponseMessage HttpResponseMessage { get; set; }
+
+        #endregion Attributes
+
+        #region Methods
 
         public HttpResponseWrapper(T? response, bool error, HttpResponseMessage httpResponseMessage)
         {
@@ -13,34 +30,33 @@
             HttpResponseMessage = httpResponseMessage;
         }
 
-        public bool Error { get; set; }
-        public T? Response { get; set; }
-        public HttpResponseMessage HttpResponseMessage { get; set; }
         public async Task<string?> GetErrorMessageAsync()
         {
             if (!Error)
             {
                 return null;
             }
-            var codigoEstatus = HttpResponseMessage.StatusCode;
-            if (codigoEstatus == HttpStatusCode.NotFound)
+            var statusCode = HttpResponseMessage.StatusCode;
+            if (statusCode == HttpStatusCode.NotFound)
             {
                 return "Recurso no encontrado";
             }
-            else if (codigoEstatus == HttpStatusCode.BadRequest)
+            else if (statusCode == HttpStatusCode.BadRequest)
             {
                 return await HttpResponseMessage.Content.ReadAsStringAsync();
             }
-            else if (codigoEstatus == HttpStatusCode.Unauthorized)
+            else if (statusCode == HttpStatusCode.Unauthorized)
             {
                 return "Tienes que logearte para hacer esta operación";
             }
-            else if (codigoEstatus == HttpStatusCode.Forbidden)
+            else if (statusCode == HttpStatusCode.Forbidden)
             {
                 return "No tienes permisos para hacer esta operación";
             }
             return "Ha ocurrido un error inesperado";
         }
-        */
+
+        #endregion Methods
+
     }
 }
