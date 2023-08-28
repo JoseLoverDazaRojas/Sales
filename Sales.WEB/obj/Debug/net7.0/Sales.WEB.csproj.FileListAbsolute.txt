@@ -864,6 +864,8 @@ C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Microsoft.Win32.Prim
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Microsoft.Win32.Registry.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\mscorlib.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\netstandard.dll
+C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Sales.Shared.dll
+C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Sales.Shared.pdb
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Sales.WEB.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Sales.WEB.pdb
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.AppContext.dll
@@ -1179,6 +1181,7 @@ C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Reflection.Pr
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Diagnostics.Process.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.IO.FileSystem.Watcher.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Runtime.Numerics.dll.gz
+C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Sales.Shared.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Runtime.CompilerServices.VisualC.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Diagnostics.TextWriterTraceListener.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Threading.dll.gz
@@ -1226,6 +1229,7 @@ C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Data.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Reflection.Emit.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Microsoft.Extensions.FileProviders.Abstractions.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Runtime.Loader.dll.gz
+C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Sales.Shared.pdb.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.IO.FileSystem.AccessControl.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Runtime.InteropServices.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Configuration.dll.gz
@@ -1430,6 +1434,8 @@ C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\icudt.dat
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\icudt_CJK.dat
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\icudt_EFIGS.dat
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\icudt_no_CJK.dat
+C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\Sales.Shared.dll
+C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\Sales.Shared.pdb
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\Sales.WEB.csproj.AssemblyReference.cache
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\Sales.WEB.GeneratedMSBuildEditorConfig.editorconfig
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\Sales.WEB.AssemblyInfoInputs.cache
@@ -1634,6 +1640,8 @@ C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\8l+hHpcv.gz
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\xQRXPefc.gz
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\myXbVgkk.gz
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\C7sBPWKh.gz
+C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\RimqDQM7.gz
+C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\Yx6F3R+F.gz
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\qipZ9NIM.gz
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\FhEONhSO.gz
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\8+lKt2+T.gz
