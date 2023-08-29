@@ -22,7 +22,7 @@ namespace Sales.API.Controllers
             return Ok(await _context.Countries.ToListAsync());
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<ActionResult> GetId(int id)
         {
             var country = await _context.Countries.FirstOrDefaultAsync(x => x.Id == id);
@@ -32,7 +32,7 @@ namespace Sales.API.Controllers
             }
             return Ok(country);
         }
-
+        
         [HttpPost]
         public async Task<ActionResult> Post(Country country)
         {
