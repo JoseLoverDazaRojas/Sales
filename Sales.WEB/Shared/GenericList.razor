@@ -4,25 +4,22 @@
 {
     @if (Loading is null)
     {
-        <div class="align-items-center">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921" />
-        </div>
+        <Loading />
     }
     else
     {
         @Loading
     }
 }
-
 else if (MyList.Count == 0)
 {
     @if (NoRecords is null)
     {
-        <p>No hay registros para mostrar...</p>
+        <p>No hay registros..</p>
     }
     else
     {
-        @NoRecords
+        @Loading
     }
 }
 else
@@ -33,23 +30,17 @@ else
 @code {
 
     [Parameter]
-
     public RenderFragment? Loading { get; set; }
 
     [Parameter]
-
     public RenderFragment? NoRecords { get; set; }
 
-    [Parameter]
-
     [EditorRequired]
-
+    [Parameter]
     public RenderFragment Body { get; set; } = null!;
 
-    [Parameter]
-
     [EditorRequired]
-
+    [Parameter]
     public List<Titem> MyList { get; set; } = null!;
 
 }
