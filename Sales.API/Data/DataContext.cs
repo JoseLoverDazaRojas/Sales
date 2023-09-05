@@ -24,6 +24,8 @@
 
         #region Entities
 
+        public DbSet<Category> Categories { get; set; }
+
         public DbSet<Country> Countries { get; set; }
 
         #endregion Entities
@@ -34,6 +36,7 @@
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Country>().HasIndex(c => c.Name).IsUnique();
+            modelBuilder.Entity<Category>().HasIndex(c => c.Name).IsUnique();
         }
 
         #endregion Model

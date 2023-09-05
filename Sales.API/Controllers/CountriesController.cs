@@ -1,80 +1,30 @@
 ﻿namespace Sales.API.Controllers
 {
 
-    using Microsoft.AspNetCore.Http;
+    #region Import
+
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.EntityFrameworkCore;
-    using Sales.API.Data;
+    using Sales.API.Intertfaces;
     using Sales.Shared.Entities;
+
+    #endregion Import
+
+    /// <summary>
+    /// The class CountriesController
+    /// </summary>
 
     [ApiController]
     [Route("api/[controller]")]
-    public class CountriesController : ControllerBase
+    public class CountriesController : GenericController<Country>
     {
-        private readonly DataContext _context;
 
-        public CountriesController(DataContext context)
+        #region Methods
+
+        public CountriesController(IGenericUnitOfWork<Country> unitOfWork) : base(unitOfWork)
         {
-            _context = context;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAsync()
-        {
-            return Ok(await _context.Countries.ToListAsync());
-        }
+        #endregion Methods
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetAsync(int id)
-        {
-            var country = await _context.Countries.FirstOrDefaultAsync(c => c.Id == id);
-            if (country == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(country);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> PostAsync(Country country)
-        {
-            var searchCountry = await _context.Countries.FirstOrDefaultAsync(c => c.Name.ToUpper().Trim() == country.Name.ToUpper().Trim());
-            if (searchCountry != null) {
-                return Conflict(country);
-            }
-            _context.Add(country);
-            await _context.SaveChangesAsync();
-            return Ok(country);
-        }
-
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutAsync(int id, Country country)
-        {
-            var currentCountry = await _context.Countries.FirstOrDefaultAsync(c => c.Id == id);
-            if (currentCountry == null)
-            {
-                return NotFound();
-            }
-
-            currentCountry.Name = country.Name;
-            _context.Update(currentCountry);
-            await _context.SaveChangesAsync();
-            return Ok(currentCountry);
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAsync(int id)
-        {
-            var country = await _context.Countries.FirstOrDefaultAsync(c => c.Id == id);
-            if (country == null)
-            {
-                return NotFound();
-            }
-
-            _context.Remove(country);
-            await _context.SaveChangesAsync();
-            return NoContent();
-        }
     }
 }
