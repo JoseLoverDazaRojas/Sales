@@ -26,7 +26,11 @@
 
         public DbSet<Category> Categories { get; set; }
 
+        public DbSet<City> Cities { get; set; }
+
         public DbSet<Country> Countries { get; set; }
+
+        public DbSet<State> States { get; set; }
 
         #endregion Entities
 
@@ -37,6 +41,8 @@
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Country>().HasIndex(c => c.Name).IsUnique();
             modelBuilder.Entity<Category>().HasIndex(c => c.Name).IsUnique();
+            modelBuilder.Entity<State>().HasIndex(s => new { s.Name, s.CountryId }).IsUnique();
+            modelBuilder.Entity<City>().HasIndex(c => new { c.Name, c.StateId }).IsUnique();
         }
 
         #endregion Model
