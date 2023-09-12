@@ -36,12 +36,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmllc1xDYXRlZ29yeUZvcm0ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Repo/Sales/Sales.WEB/Pages/Cities/CityCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2l0aWVzXENpdHlDcmVhdGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Repo/Sales/Sales.WEB/Pages/Cities/CityEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2l0aWVzXENpdHlFZGl0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Repo/Sales/Sales.WEB/Pages/Cities/CityForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2l0aWVzXENpdHlGb3JtLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Repo/Sales/Sales.WEB/Pages/Countries/CountriesIndex.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRyaWVzXENvdW50cmllc0luZGV4LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Repo/Sales/Sales.WEB/Pages/Countries/CountryCreate.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRyaWVzXENvdW50cnlDcmVhdGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Repo/Sales/Sales.WEB/Pages/Countries/CountryDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRyaWVzXENvdW50cnlEZXRhaWxzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Repo/Sales/Sales.WEB/Pages/Countries/CountryEdit.razor]
@@ -54,6 +70,22 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Repo/Sales/Sales.WEB/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Repo/Sales/Sales.WEB/Pages/States/StateCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhdGVzXFN0YXRlQ3JlYXRlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Repo/Sales/Sales.WEB/Pages/States/StateDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhdGVzXFN0YXRlRGV0YWlscy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Repo/Sales/Sales.WEB/Pages/States/StateEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhdGVzXFN0YXRlRWRpdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Repo/Sales/Sales.WEB/Pages/States/StateForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhdGVzXFN0YXRlRm9ybS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Repo/Sales/Sales.WEB/Shared/GenericList.razor]
