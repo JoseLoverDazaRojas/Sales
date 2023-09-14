@@ -6,7 +6,9 @@
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
     using Sales.API.Data;
-    using Sales.API.Intertfaces;
+    using Sales.API.Helpers;
+    using Sales.API.Interfaces;
+    using Sales.Shared.DTOs;
     using Sales.Shared.Entities;
 
     #endregion Import
@@ -28,7 +30,7 @@
 
         #region Constructor
 
-        public CountriesController(IGenericUnitOfWork<Country> unitOfWork, DataContext context) : base(unitOfWork)
+        public CountriesController(IGenericUnitOfWork<Country> unitOfWork, DataContext context) : base(unitOfWork, context)
         {
             _context = context;
         }
@@ -38,10 +40,15 @@
         #region Methods
 
         [HttpGet]
-        public override async Task<IActionResult> GetAsync()
+        public override async Task<IActionResult> GetAsync([FromQuery] PaginationDTO pagination)
         {
-            return Ok(await _context.Countries
+            var queryable = _context.Countries
                 .Include(c => c.States)
+                .AsQueryable();
+
+            return Ok(await queryable
+                .OrderBy(c => c.Name)
+                .Paginate(pagination)
                 .ToListAsync());
         }
 

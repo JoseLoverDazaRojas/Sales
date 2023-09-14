@@ -5,7 +5,7 @@
 
     using Microsoft.EntityFrameworkCore;
     using Sales.API.Data;
-    using Sales.API.Intertfaces;
+    using Sales.API.Interfaces;
     using Sales.Shared.Responses;
 
     #endregion Import

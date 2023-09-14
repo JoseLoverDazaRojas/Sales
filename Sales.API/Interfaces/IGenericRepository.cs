@@ -1,4 +1,4 @@
-﻿namespace Sales.API.Intertfaces
+﻿namespace Sales.API.Interfaces
 {
 
     #region Import

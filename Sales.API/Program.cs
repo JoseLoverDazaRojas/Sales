@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Sales.API.Data;
-using Sales.API.Intertfaces;
+using Sales.API.Interfaces;
 using Sales.API.Repositories;
 using Sales.API.Services;
 using Sales.API.UnitsOfWork;

@@ -4,7 +4,8 @@
     #region Import
 
     using Microsoft.AspNetCore.Mvc;
-    using Sales.API.Intertfaces;
+    using Sales.API.Data;
+    using Sales.API.Interfaces;
     using Sales.Shared.Entities;
 
     #endregion Import
@@ -18,11 +19,21 @@
     public class CategoriesController : GenericController<Category>
     {
 
-        #region Methods
+        #region Attributes
 
-        public CategoriesController(IGenericUnitOfWork<Category> unitOfWork) : base(unitOfWork)
+        private readonly DataContext _context;
+
+        #endregion Attributes
+
+        #region Constructor
+
+        public CategoriesController(IGenericUnitOfWork<Category> unitOfWork, DataContext context) : base(unitOfWork, context)
         {
         }
+
+        #endregion Constructor
+
+        #region Methods
 
         #endregion Methods
 
