@@ -1,5 +1,6 @@
 ﻿namespace Sales.API.Data
 {
+    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     #region Import
 
     using Microsoft.EntityFrameworkCore;
@@ -11,7 +12,7 @@
     /// The class DataContext
     /// </summary>
 
-    public class DataContext : DbContext
+    public class DataContext : IdentityDbContext<User>
     {
 
         #region Constructor
