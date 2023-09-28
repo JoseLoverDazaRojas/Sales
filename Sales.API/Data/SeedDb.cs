@@ -46,7 +46,8 @@
             await CheckCountriesAsync();
             await CheckCategoriesAsync();
             await CheckRolesAsync();
-            await CheckUserAsync("1010", "Jose", "Daza", "josel8485@gmail.com", "313 644 9685", "Carrrera 18", UserType.Admin);
+            await CheckUserAsync("1113628003", "Jose", "Daza", "josel8485@gmail.com", "313 644 9685", "Carrrera 18", UserType.Admin);
+            await CheckUserAsync("1113628004", "Jose", "Daza", "josel8485@hotmail.com", "313 644 9685", "Carrrera 18", UserType.User);
         }
 
         private async Task<User> CheckUserAsync(string document, string firstName, string lastName, string email, string phone, string address, UserType userType)
@@ -63,7 +64,7 @@
                     PhoneNumber = phone,
                     Address = address,
                     Document = document,
-                    City = _context.Cities.FirstOrDefault(),
+                    City = _context.Cities.Where(x => x.Name == "Palmira").FirstOrDefault(),
                     UserType = userType,
                 };
 

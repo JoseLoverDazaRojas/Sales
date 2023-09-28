@@ -1,4 +1,5 @@
 ﻿@page "/countries/details/{CountryId:int}"
+@attribute [Authorize(Roles = "Admin")]
 @inject IRepository repository
 @inject NavigationManager navigationManager
 @inject SweetAlertService sweetAlertService
@@ -10,11 +11,21 @@
 else
 {
     <h3>@country.Name</h3>
-
-    <div class="mb-2">
-        <a class="btn btn-primary" href="/states/create/@country.Id">Nuevo Estado/Departamento</a>
-        <a class="btn btn-success" href="/countries">Regresar</a>
+    <div class="mb-2" style="display: flex; flex-wrap:wrap; align-items: center;">
+        <div>
+            <a class="btn btn-primary" href="/states/create/@country.Id">Nuevo Estado/Departamento</a>
+            <a class="btn btn-success" href="/countries">Regresar</a>
+        </div>
+        <div class="mx-2">
+            <input style="width: 400px;" type="text" class="form-control" id="titulo" placeholder="Buscar estado/departamento..." @bind-value="Filter" />
+        </div>
+        <div>
+            <button type="button" class="btn btn-outline-primary" @onclick="ApplyFilterAsync">Filtrar</button>
+            <button type="button" class="btn btn-outline-danger" @onclick="CleanFilterAsync">Limpiar</button>
+        </div>
     </div>
+
+    <h4>Estados/Departamentos</h4>
 
     <Pagination CurrentPage="currentPage"
                 TotalPages="totalPages"
@@ -36,7 +47,7 @@ else
                     {
                         <tr>
                             <td><a href="/states/details/@state.Id">@state.Name</a></td>
-                            <td>@state.CitiesNumber</td>
+                            <td> @state.CitiesNumber</td>
                             <td>
                                 <a class="btn btn-warning btn-sm" href="/states/edit/@state.Id">Editar</a>
                                 <button class="btn btn-danger btn-sm" @onclick=@(() => DeleteAsync(state))>Borrar</button>
@@ -58,6 +69,14 @@ else
     [Parameter]
     public int CountryId { get; set; }
 
+    [Parameter]
+    [SupplyParameterFromQuery]
+    public string Page { get; set; } = string.Empty;
+
+    [Parameter]
+    [SupplyParameterFromQuery]
+    public string Filter { get; set; } = string.Empty;
+
     protected override async Task OnInitializedAsync()
     {
         await LoadAsync();
@@ -69,9 +88,13 @@ else
         await LoadAsync(page);
     }
 
-
     private async Task LoadAsync(int page = 1)
     {
+        if (!string.IsNullOrWhiteSpace(Page))
+        {
+            page = Convert.ToInt32(Page);
+        }
+
         var ok = await LoadCountryAsync();
         if (ok)
         {
@@ -85,7 +108,17 @@ else
 
     private async Task LoadPagesAsync()
     {
-        var response = await repository.GetAsync<int>($"api/states/totalPages?id={CountryId}");
+        var url = string.Empty;
+        if (string.IsNullOrEmpty(Filter))
+        {
+            url = $"api/states/totalPages?id={CountryId}";
+        }
+        else
+        {
+            url = $"api/states/totalPages?id={CountryId}&filter={Filter}";
+        }
+
+        var response = await repository.GetAsync<int>(url);
         if (response.Error)
         {
             var message = await response.GetErrorMessageAsync();
@@ -95,10 +128,19 @@ else
         totalPages = response.Response;
     }
 
-
     private async Task<bool> LoadStatesAsync(int page)
     {
-        var response = await repository.GetAsync<List<State>>($"api/states?id={CountryId}&page={page}");
+        var url = string.Empty;
+        if (string.IsNullOrEmpty(Filter))
+        {
+            url = $"api/states?id={CountryId}&page={page}";
+        }
+        else
+        {
+            url = $"api/states?id={CountryId}&page={page}&filter={Filter}";
+        }
+
+        var response = await repository.GetAsync<List<State>>(url);
         if (response.Error)
         {
             var message = await response.GetErrorMessageAsync();
@@ -126,6 +168,19 @@ else
         }
         country = response.Response;
         return true;
+    }
+
+    private async Task CleanFilterAsync()
+    {
+        Filter = string.Empty;
+        await ApplyFilterAsync();
+    }
+
+    private async Task ApplyFilterAsync()
+    {
+        int page = 1;
+        await LoadAsync(page);
+        await SelectedPageAsync(page);
     }
 
     private async Task DeleteAsync(State state)

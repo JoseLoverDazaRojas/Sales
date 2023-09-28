@@ -1,12 +1,11 @@
-﻿namespace Sales.WEB.Repositories
+﻿
+#region Import
+
+using System.Text;
+using System.Text.Json;
+
+namespace Sales.WEB.Repositories
 {
-
-    #region Import
-
-    using System.Reflection;
-    using System.Text;
-    using System.Text.Json;
-
     #endregion Import
 
     /// <summary>
@@ -21,23 +20,21 @@
 
         #endregion Attributes
 
-        #region Methods
-
-        private JsonSerializerOptions _jsonDefaultOptions => new JsonSerializerOptions
-        {
-            PropertyNameCaseInsensitive = true,
-        };
+        #region Constructor
 
         public Repository(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
 
-        private async Task<T> UnserializeAnswer<T>(HttpResponseMessage responseHttp)
+        #endregion Constructor
+
+        #region Methods
+
+        private JsonSerializerOptions _jsonDefaultOptions => new JsonSerializerOptions
         {
-            var response = await responseHttp.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<T>(response, _jsonDefaultOptions)!;
-        }
+            PropertyNameCaseInsensitive = true,
+        };
 
         public async Task<HttpResponseWrapper<T>> GetAsync<T>(string url)
         {
@@ -73,6 +70,18 @@
             return new HttpResponseWrapper<TResponse>(default, !responseHttp.IsSuccessStatusCode, responseHttp);
         }
 
+        private async Task<T> UnserializeAnswer<T>(HttpResponseMessage responseHttp)
+        {
+            var response = await responseHttp.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<T>(response, _jsonDefaultOptions)!;
+        }
+
+        public async Task<HttpResponseWrapper<object>> DeleteAsync(string url)
+        {
+            var responseHttp = await _httpClient.DeleteAsync(url);
+            return new HttpResponseWrapper<object>(null, !responseHttp.IsSuccessStatusCode, responseHttp);
+        }
+
         public async Task<HttpResponseWrapper<object>> PutAsync<T>(string url, T model)
         {
             var messageJSON = JsonSerializer.Serialize(model);
@@ -93,12 +102,6 @@
             }
 
             return new HttpResponseWrapper<TResponse>(default, !responseHttp.IsSuccessStatusCode, responseHttp);
-        }
-
-        public async Task<HttpResponseWrapper<object>> DeleteAsync(string url)
-        {
-            var responseHttp = await _httpClient.DeleteAsync(url);
-            return new HttpResponseWrapper<object>(null, !responseHttp.IsSuccessStatusCode, responseHttp);
         }
 
         #endregion Methods

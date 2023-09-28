@@ -19,7 +19,7 @@ else if (MyList.Count == 0)
     }
     else
     {
-        @Loading
+        @NoRecords
     }
 }
 else
@@ -28,7 +28,6 @@ else
 }
 
 @code {
-
     [Parameter]
     public RenderFragment? Loading { get; set; }
 
@@ -42,5 +41,4 @@ else
     [EditorRequired]
     [Parameter]
     public List<Titem> MyList { get; set; } = null!;
-
 }

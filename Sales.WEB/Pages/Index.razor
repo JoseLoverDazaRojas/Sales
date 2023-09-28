@@ -1,9 +1,12 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Sales</PageTitle>
 
-<h1>App Sales</h1>
-
-Welcome to App Sales.
-
-<SurveyPrompt Title="How is Blazor working for you?" />
+<AuthorizeView Roles="Admin">
+    <Authorized>
+        <p>Estas autenticado y autorizado, @context.User.Identity?.Name</p>
+    </Authorized>
+    <NotAuthorized>
+        <p>No estas autorizado</p>
+    </NotAuthorized>
+</AuthorizeView>
