@@ -36,6 +36,17 @@
 
         #region Methods
 
+        public async Task<IEnumerable<T>> GetAsync()
+        {
+            return await _entity.ToListAsync();
+        }
+
+        public async Task<T> GetAsync(int id)
+        {
+            var row = await _entity.FindAsync(id);
+            return row!;
+        }
+        
         public async Task<Response<T>> AddAsync(T entity)
         {
             _context.Add(entity);
@@ -58,52 +69,6 @@
             }
         }
 
-        public async Task<Response<T>> DeleteAsync(int id)
-        {
-            var row = await _entity.FindAsync(id);
-            if (row != null)
-            {
-                _entity.Remove(row);
-                await _context.SaveChangesAsync();
-                return new Response<T>
-                {
-                    WasSuccess = true,
-                };
-            }
-            return new Response<T>
-            {
-                WasSuccess = false,
-                Message = "Registro no encontrado"
-            };
-        }
-
-        public async Task<Response<T>> GetAsync(int id)
-        {
-            var row = await _entity.FindAsync(id);
-            if (row != null)
-            {
-                return new Response<T>
-                {
-                    WasSuccess = true,
-                    Result = row
-                };
-            }
-            return new Response<T>
-            {
-                WasSuccess = false,
-                Message = "Registro no encontrado"
-            };
-        }
-
-        public async Task<Response<IEnumerable<T>>> GetAsync()
-        {
-            return new Response<IEnumerable<T>>
-            {
-                WasSuccess = true,
-                Result = await _entity.ToListAsync()
-            };
-        }
-
         public async Task<Response<T>> UpdateAsync(T entity)
         {
             try
@@ -123,6 +88,16 @@
             catch (Exception exception)
             {
                 return ExceptionResponse(exception);
+            }
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var row = await _entity.FindAsync(id);
+            if (row != null)
+            {
+                _entity.Remove(row);
+                await _context.SaveChangesAsync();
             }
         }
 

@@ -16,7 +16,7 @@
 
         #region Methods
 
-        Task<Response<T>> GetAsync<T>(string servicePrefix, string controller);
+        public Task<Response<T>> GetAsync<T>(string servicePrefix, string controller);
 
         #endregion Methods
 

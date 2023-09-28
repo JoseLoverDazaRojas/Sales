@@ -1,8 +1,9 @@
 ﻿namespace Sales.API.Data
 {
-    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+
     #region Import
 
+    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
     using Sales.Shared.Entities;
 
@@ -40,10 +41,10 @@
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Country>().HasIndex(c => c.Name).IsUnique();
             modelBuilder.Entity<Category>().HasIndex(c => c.Name).IsUnique();
-            modelBuilder.Entity<State>().HasIndex(s => new { s.Name, s.CountryId }).IsUnique();
-            modelBuilder.Entity<City>().HasIndex(c => new { c.Name, c.StateId }).IsUnique();
+            modelBuilder.Entity<Country>().HasIndex(c => c.Name).IsUnique();
+            modelBuilder.Entity<State>().HasIndex(s => new { s.CountryId, s.Name }).IsUnique();
+            modelBuilder.Entity<City>().HasIndex(c => new { c.StateId, c.Name }).IsUnique();
         }
 
         #endregion Model

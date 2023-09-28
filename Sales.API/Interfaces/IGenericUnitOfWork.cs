@@ -16,15 +16,15 @@
 
         #region Methods
 
-        Task<Response<IEnumerable<T>>> GetAsync();
+        public Task<IEnumerable<T>> GetAsync();
 
-        Task<Response<T>> AddAsync(T model);
+        public Task<T> GetAsync(int id);
 
-        Task<Response<T>> UpdateAsync(T model);
+        public Task<Response<T>> AddAsync(T model);
 
-        Task<Response<T>> DeleteAsync(int id);
+        public Task<Response<T>> UpdateAsync(T model);
 
-        Task<Response<T>> GetAsync(int id);
+        public Task DeleteAsync(int id);
 
         #endregion Methods
 

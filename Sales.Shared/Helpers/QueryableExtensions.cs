@@ -1,4 +1,4 @@
-﻿namespace Sales.API.Helpers
+﻿namespace Sales.Shared.Helpers
 {
 
     #region Import
