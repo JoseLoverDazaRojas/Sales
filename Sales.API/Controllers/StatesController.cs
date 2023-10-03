@@ -3,6 +3,8 @@
 
     #region Import
 
+    using Microsoft.AspNetCore.Authentication.JwtBearer;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
     using Sales.API.Data;
@@ -18,6 +20,7 @@
     /// </summary>
 
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("api/[controller]")]
     public class StatesController : GenericController<State>
     {
@@ -74,7 +77,6 @@
             double totalPages = Math.Ceiling(count / pagination.RecordsNumber);
             return Ok(totalPages);
         }
-
 
         [HttpGet("{id}")]
         public override async Task<IActionResult> GetAsync(int id)

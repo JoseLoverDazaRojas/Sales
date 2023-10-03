@@ -7,6 +7,7 @@
     using Microsoft.EntityFrameworkCore;
     using Sales.API.Data;
     using Sales.API.Helpers.Interfaces;
+    using Sales.Shared.DTOs;
     using Sales.Shared.Entities;
 
     #endregion Import
@@ -23,16 +24,18 @@
         private readonly UserManager<User> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly DataContext _context;
+        private readonly SignInManager<User> _signInManager;
 
         #endregion Attributes
 
         #region Constructor
 
-        public UserHelper(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, DataContext context)
+        public UserHelper(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, DataContext context, SignInManager<User> signInManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _context = context;
+            _signInManager = signInManager;
         }
 
         #endregion Constructor
@@ -74,6 +77,16 @@
         public async Task<bool> IsUserInRoleAsync(User user, string roleName)
         {
             return await _userManager.IsInRoleAsync(user, roleName);
+        }
+
+        public async Task<SignInResult> LoginAsync(LoginDTO model)
+        {
+            return await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
+        }
+
+        public async Task LogoutAsync()
+        {
+            await _signInManager.SignOutAsync();
         }
 
         #endregion Methods

@@ -37,7 +37,7 @@
             },
             authenticationType: "test");
 
-            return await Task.FromResult(new AuthenticationState(new ClaimsPrincipal(adminUser)));
+            return await Task.FromResult(new AuthenticationState(new ClaimsPrincipal(anonimous)));
         }
 
         #endregion Methods
