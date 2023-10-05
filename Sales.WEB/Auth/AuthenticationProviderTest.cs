@@ -8,6 +8,10 @@
 
     #endregion Import
 
+    /// <summary>
+    /// The class AuthenticationProviderTest
+    /// </summary>
+
     public class AuthenticationProviderTest : AuthenticationStateProvider
     {
 
@@ -21,23 +25,23 @@
 
             var adminUser = new ClaimsIdentity(new List<Claim>
             {
-                new Claim("FirstName", "Jose"),
-                new Claim("LastName", "Daza"),
-                new Claim(ClaimTypes.Name, "josel8485@gmail.com"),
+                new Claim("FirstName", "Juan"),
+                new Claim("LastName", "Zulu"),
+                new Claim(ClaimTypes.Name, "zulu@yopmail.com"),
                 new Claim(ClaimTypes.Role, "Admin")
             },
             authenticationType: "test");
 
             var otherUser = new ClaimsIdentity(new List<Claim>
             {
-                new Claim("FirstName", "Jose"),
-                new Claim("LastName", "Daza"),
-                new Claim(ClaimTypes.Name, "josel8485@hotmail.com"),
+                new Claim("FirstName", "Ledys"),
+                new Claim("LastName", "Bedoya"),
+                new Claim(ClaimTypes.Name, "ledys@yopmail.com"),
                 new Claim(ClaimTypes.Role, "User")
             },
             authenticationType: "test");
 
-            return await Task.FromResult(new AuthenticationState(new ClaimsPrincipal(anonimous)));
+            return await Task.FromResult(new AuthenticationState(new ClaimsPrincipal(adminUser)));
         }
 
         #endregion Methods
