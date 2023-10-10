@@ -108,6 +108,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEdlbmVyaWNMaXN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Repo/Sales/Sales.WEB/Shared/InputImg.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXElucHV0SW1nLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Repo/Sales/Sales.WEB/Shared/Loading.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvYWRpbmcucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

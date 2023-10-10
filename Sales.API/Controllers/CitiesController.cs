@@ -8,6 +8,7 @@
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
     using Sales.API.Data;
+    using Sales.API.Helpers;
     using Sales.API.Interfaces;
     using Sales.Shared.DTOs;
     using Sales.Shared.Entities;
@@ -41,6 +42,16 @@
         #endregion Constructor
 
         #region Methods
+
+        [AllowAnonymous]
+        [HttpGet("combo/{stateId:int}")]
+        public async Task<ActionResult> GetComboAsync(int stateId)
+        {
+            return Ok(await _context.Cities
+                .Where(c => c.StateId == stateId)
+                .OrderBy(c => c.Name)
+                .ToListAsync());
+        }
 
         [HttpGet]
         public override async Task<IActionResult> GetAsync([FromQuery] PaginationDTO pagination)

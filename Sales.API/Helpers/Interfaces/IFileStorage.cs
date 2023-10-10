@@ -10,11 +10,11 @@
 
         #region Methods
 
-        Task<string> SaveFileAsync(byte[] content, string extention, string containerName);
+        public Task<string> SaveFileAsync(byte[] content, string extention, string containerName);
 
-        Task RemoveFileAsync(string path, string nombreContenedor);
+        public Task RemoveFileAsync(string path, string containerName);
 
-        async Task<string> EditFileAsync(byte[] content, string extention, string containerName, string path)
+        public async Task<string> EditFileAsync(byte[] content, string extention, string containerName, string path)
         {
             if (path is not null)
             {

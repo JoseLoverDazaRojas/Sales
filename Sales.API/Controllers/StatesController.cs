@@ -3,7 +3,7 @@
 
     #region Import
 
-    using Microsoft.AspNetCore.Authentication.JwtBearer;
+    ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
@@ -41,6 +41,16 @@
         #endregion Constructor
 
         #region Methods
+
+        [AllowAnonymous]
+        [HttpGet("combo/{countryId:int}")]
+        public async Task<ActionResult> GetComboAsync(int countryId)
+        {
+            return Ok(await _context.States
+                .Where(s => s.CountryId == countryId)
+                .OrderBy(s => s.Name)
+                .ToListAsync());
+        }
 
         [HttpGet]
         public override async Task<IActionResult> GetAsync([FromQuery] PaginationDTO pagination)

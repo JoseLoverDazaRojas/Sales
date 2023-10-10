@@ -19,19 +19,25 @@
 
         #region Methods
 
-        Task<User> GetUserAsync(string email);
+        public Task<User> GetUserAsync(string email);
 
-        Task<IdentityResult> AddUserAsync(User user, string password);
+        public Task<IdentityResult> AddUserAsync(User user, string password);
 
-        Task CheckRoleAsync(string roleName);
+        public Task CheckRoleAsync(string roleName);
 
-        Task AddUserToRoleAsync(User user, string roleName);
+        public Task AddUserToRoleAsync(User user, string roleName);
 
-        Task<bool> IsUserInRoleAsync(User user, string roleName);
+        public Task<bool> IsUserInRoleAsync(User user, string roleName);
 
-        Task<SignInResult> LoginAsync(LoginDTO model);
+        public Task<SignInResult> LoginAsync(LoginDTO model);
 
-        Task LogoutAsync();
+        public Task LogoutAsync();
+
+        public Task<IdentityResult> ChangePasswordAsync(User user, string currentPassword, string newPassword);
+
+        public Task<IdentityResult> UpdateUserAsync(User user);
+
+        public Task<User> GetUserAsync(Guid userId);
 
         #endregion Methods
 

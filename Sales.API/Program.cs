@@ -57,8 +57,6 @@ builder.Services.AddSwaggerGen(c =>
         });
 });
 
-
-
 builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer("name=LocalConnection"));
 builder.Services.AddScoped(typeof(IGenericUnitOfWork<>), typeof(GenericUnitOfWork<>));
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
@@ -89,6 +87,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["jwtKey"]!)),
         ClockSkew = TimeSpan.Zero
     });
+
+builder.Services.AddScoped<IFileStorage, FileStorage>();
 
 var app = builder.Build();
 SeedData(app);

@@ -54,6 +54,7 @@
             {
                 await blob.UploadAsync(ms);
             }
+
             return blob.Uri.ToString();
         }
 
