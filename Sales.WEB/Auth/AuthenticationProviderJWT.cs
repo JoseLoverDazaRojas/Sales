@@ -37,7 +37,6 @@
             _httpClient = httpClient;
             _tokenKey = "TOKEN_KEY";
             _anonimous = new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
-
         }
 
         #endregion Constructor

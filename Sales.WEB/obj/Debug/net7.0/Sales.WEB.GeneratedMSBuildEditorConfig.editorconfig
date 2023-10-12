@@ -20,6 +20,22 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Repo/Sales/Sales.WEB/Auth/RecoverPassword.razor]
+build_metadata.AdditionalFiles.TargetPath = QXV0aFxSZWNvdmVyUGFzc3dvcmQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Repo/Sales/Sales.WEB/Pages/Auth/ChangePassword.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxDaGFuZ2VQYXNzd29yZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Repo/Sales/Sales.WEB/Pages/Auth/ConfirmEmail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxDb25maXJtRW1haWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Repo/Sales/Sales.WEB/Pages/Auth/EditUser.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxFZGl0VXNlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Repo/Sales/Sales.WEB/Pages/Auth/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxMb2dpbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -30,6 +46,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Repo/Sales/Sales.WEB/Pages/Auth/Register.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxSZWdpc3Rlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Repo/Sales/Sales.WEB/Pages/Auth/ResendConfirmationEmailToken.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxSZXNlbmRDb25maXJtYXRpb25FbWFpbFRva2VuLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Repo/Sales/Sales.WEB/Pages/Auth/ResetPassword.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxSZXNldFBhc3N3b3JkLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Repo/Sales/Sales.WEB/Pages/Categories/CategoriesIndex.razor]

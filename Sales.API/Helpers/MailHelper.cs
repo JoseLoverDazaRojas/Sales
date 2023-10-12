@@ -48,7 +48,7 @@
                 message.From.Add(new MailboxAddress(name, from));
                 message.To.Add(new MailboxAddress(toName, toEmail));
                 message.Subject = subject;
-                BodyBuilder bodyBuilder = new BodyBuilder
+                var bodyBuilder = new BodyBuilder
                 {
                     HtmlBody = body
                 };

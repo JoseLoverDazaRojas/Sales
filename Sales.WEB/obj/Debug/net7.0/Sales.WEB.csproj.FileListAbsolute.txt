@@ -828,6 +828,7 @@ C:\Users\programador\Downloads\Especialización en Software ITM\CONSTRUCCIÓN DE
 C:\Users\programador\Downloads\Especialización en Software ITM\CONSTRUCCIÓN DE SOFTWARE\Repositorio\Sales\Sales.WEB\obj\Debug\net7.0\ref\Sales.WEB.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\blazor.boot.json
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\blazor.webassembly.js
+C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Blazored.Modal.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\CurrieTechnologies.Razor.SweetAlert2.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\dotnet.7.0.10.vzm6zpl6t5.js
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\dotnet.timezones.blat
@@ -1249,6 +1250,7 @@ C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Microsoft.Extensions
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Threading.Tasks.Dataflow.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Net.NetworkInformation.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Runtime.Serialization.Primitives.dll.gz
+C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Blazored.Modal.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Xml.Serialization.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.IO.Compression.Brotli.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\icudt_CJK.dat.gz
@@ -1272,6 +1274,7 @@ C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Configuration
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\Sales.WEB.staticwebassets.runtime.json
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\Sales.WEB.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\Sales.WEB.pdb
+C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\Blazored.Modal.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\CurrieTechnologies.Razor.SweetAlert2.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\Microsoft.AspNetCore.Authorization.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\Microsoft.AspNetCore.Components.dll
@@ -1496,6 +1499,7 @@ C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\Sales.WEB.AssemblyInfoInputs.cache
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\Sales.WEB.AssemblyInfo.cs
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\Sales.WEB.csproj.CoreCompileInputs.cache
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\Sales.WEB.MvcApplicationPartsAssemblyInfo.cache
+C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\XcQWwIJM.gz
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\5k9mCpan.gz
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\Vc8IhDio.gz
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\DV8q4XYT.gz

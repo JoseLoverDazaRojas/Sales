@@ -12,6 +12,9 @@
     private Category category = new();
     private CategoryForm? categoryForm;
 
+    [CascadingParameter]
+    BlazoredModalInstance BlazoredModal { get; set; } = default!;
+
     private async Task CreateAsync()
     {
         var response = await repository.PostAsync("/api/categories", category);
@@ -21,7 +24,10 @@
             await sweetAlertService.FireAsync("Error", message, SweetAlertIcon.Error);
             return;
         }
+
+        await BlazoredModal.CloseAsync(ModalResult.Ok());
         Return();
+
         var toast = sweetAlertService.Mixin(new SweetAlertOptions
             {
                 Toast = true,

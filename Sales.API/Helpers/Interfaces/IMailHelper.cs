@@ -15,8 +15,8 @@
     {
 
         #region Methods
-
-        Response<string> SendMail(string toName, string toEmail, string subject, string body);
+        
+        Response<string> SendMail(string toName, string toEmail, string subject, string body);       
 
         #endregion Methods
 

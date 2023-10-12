@@ -9,7 +9,6 @@
 
     #endregion Import
 
-
     /// <summary>
     /// The interface IUserHelper
     /// </summary>
@@ -38,6 +37,14 @@
         public Task<IdentityResult> UpdateUserAsync(User user);
 
         public Task<User> GetUserAsync(Guid userId);
+
+        public Task<string> GenerateEmailConfirmationTokenAsync(User user);
+
+        public Task<IdentityResult> ConfirmEmailAsync(User user, string token);
+
+        public Task<string> GeneratePasswordResetTokenAsync(User user);
+
+        public Task<IdentityResult> ResetPasswordAsync(User user, string token, string password);
 
         #endregion Methods
 
