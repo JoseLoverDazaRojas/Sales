@@ -14,6 +14,7 @@
                     <span>
                         <i class="oi oi-account-login" /> Iniciar Sesión
                         <button class="btn btn-sm btn-primary float-end" type="submit"><i class="oi oi-check" /> Iniciar Sesión</button>
+                        <button class="btn btn-sm mx-1 btn-danger float-end" @onclick=@(() => CloseModalAsync())><i class="oi oi-ban" /> Cancelar</button>
                     </span>
                 </div>
                 <div class="card-body">
@@ -42,10 +43,16 @@
 </div>
 
 @code {
+
     private LoginDTO loginDTO = new();
 
     [CascadingParameter]
     BlazoredModalInstance BlazoredModal { get; set; } = default!;
+
+    private async Task CloseModalAsync()
+    {
+        await BlazoredModal.CloseAsync(ModalResult.Ok());
+    }
 
     private async Task LoginAsync()
     {
@@ -69,4 +76,5 @@
             });
         await toast.FireAsync(icon: SweetAlertIcon.Success, message: "Usuario inició sesión con éxito.");
     }
+
 }

@@ -1,11 +1,11 @@
-﻿
-#region Import
-
-using System.Text;
-using System.Text.Json;
-
-namespace Sales.WEB.Repositories
+﻿namespace Sales.WEB.Repositories
 {
+
+    #region Import
+
+    using System.Text;
+    using System.Text.Json;
+
     #endregion Import
 
     /// <summary>
@@ -35,6 +35,12 @@ namespace Sales.WEB.Repositories
         {
             PropertyNameCaseInsensitive = true,
         };
+
+        private async Task<T> UnserializeAnswer<T>(HttpResponseMessage responseHttp)
+        {
+            var response = await responseHttp.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<T>(response, _jsonDefaultOptions)!;
+        }
 
         public async Task<HttpResponseWrapper<object>> GetAsync(string url)
         {
@@ -76,18 +82,6 @@ namespace Sales.WEB.Repositories
             return new HttpResponseWrapper<TResponse>(default, !responseHttp.IsSuccessStatusCode, responseHttp);
         }
 
-        private async Task<T> UnserializeAnswer<T>(HttpResponseMessage responseHttp)
-        {
-            var response = await responseHttp.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<T>(response, _jsonDefaultOptions)!;
-        }
-
-        public async Task<HttpResponseWrapper<object>> DeleteAsync(string url)
-        {
-            var responseHttp = await _httpClient.DeleteAsync(url);
-            return new HttpResponseWrapper<object>(null, !responseHttp.IsSuccessStatusCode, responseHttp);
-        }
-
         public async Task<HttpResponseWrapper<object>> PutAsync<T>(string url, T model)
         {
             var messageJSON = JsonSerializer.Serialize(model);
@@ -108,6 +102,12 @@ namespace Sales.WEB.Repositories
             }
 
             return new HttpResponseWrapper<TResponse>(default, !responseHttp.IsSuccessStatusCode, responseHttp);
+        }
+
+        public async Task<HttpResponseWrapper<object>> DeleteAsync(string url)
+        {
+            var responseHttp = await _httpClient.DeleteAsync(url);
+            return new HttpResponseWrapper<object>(null, !responseHttp.IsSuccessStatusCode, responseHttp);
         }
 
         #endregion Methods

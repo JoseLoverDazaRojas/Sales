@@ -136,6 +136,10 @@
               "target": "Package",
               "version": "[7.0.10, )"
             },
+            "MudBlazor": {
+              "target": "Package",
+              "version": "[6.11.0, )"
+            },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[7.0.0, )"

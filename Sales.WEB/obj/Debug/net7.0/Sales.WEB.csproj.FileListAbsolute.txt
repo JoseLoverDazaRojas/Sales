@@ -866,6 +866,8 @@ C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Microsoft.Extensions
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Microsoft.Extensions.FileSystemGlobbing.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Microsoft.Extensions.Identity.Core.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Microsoft.Extensions.Identity.Stores.dll
+C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Microsoft.Extensions.Localization.Abstractions.dll
+C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Microsoft.Extensions.Localization.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Microsoft.Extensions.Logging.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Microsoft.Extensions.Options.dll
@@ -881,6 +883,7 @@ C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Microsoft.VisualBasi
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Microsoft.Win32.Primitives.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Microsoft.Win32.Registry.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\mscorlib.dll
+C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\MudBlazor.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\netstandard.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Sales.Shared.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Sales.Shared.pdb
@@ -1153,6 +1156,7 @@ C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.ComponentMode
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Console.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Microsoft.AspNetCore.Components.Authorization.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Text.Json.dll.gz
+C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Microsoft.Extensions.Localization.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Reflection.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Text.Encoding.CodePages.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Runtime.Intrinsics.dll.gz
@@ -1165,6 +1169,7 @@ C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Runtime.Seria
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Private.Xml.Linq.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Xml.XPath.XDocument.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Linq.Queryable.dll.gz
+C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\MudBlazor.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.ComponentModel.Primitives.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Private.Uri.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.ComponentModel.EventBasedAsync.dll.gz
@@ -1238,6 +1243,7 @@ C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Microsoft.Extensions
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Core.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.IO.FileSystem.Primitives.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Threading.Tasks.Parallel.dll.gz
+C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Microsoft.Extensions.Localization.Abstractions.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Runtime.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\Microsoft.AspNetCore.Authorization.dll.gz
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\wwwroot\_framework\System.Security.AccessControl.dll.gz
@@ -1304,6 +1310,8 @@ C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\Microsoft.Extensions.FileProviders.Phys
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\Microsoft.Extensions.FileSystemGlobbing.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\Microsoft.Extensions.Localization.dll
+C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\Microsoft.Extensions.Localization.Abstractions.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\Microsoft.Extensions.Logging.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
@@ -1314,6 +1322,7 @@ C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\Microsoft.JSInterop.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\Microsoft.JSInterop.WebAssembly.dll
+C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\MudBlazor.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\System.IO.Pipelines.dll
 C:\Repo\Sales\Sales.WEB\bin\Debug\net7.0\Microsoft.CSharp.dll
@@ -1529,6 +1538,8 @@ C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\fXbdyz2M.gz
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\tJCaJv25.gz
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\FGCmveH9.gz
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\6OCGjMqe.gz
+C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\IStiHrxs.gz
+C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\UsZcskzZ.gz
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\g0B6czti.gz
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\+pipDqEP.gz
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\pK+8TA9P.gz
@@ -1539,6 +1550,7 @@ C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\S0CoQC9V.gz
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\TCisVe+H.gz
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\17KbCfgw.gz
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\3dgFz2Z0.gz
+C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\kkINfVS8.gz
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\dDYVUigG.gz
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\aD2TpZL7.gz
 C:\Repo\Sales\Sales.WEB\obj\Debug\net7.0\build-gz\cGnMhk9h.gz

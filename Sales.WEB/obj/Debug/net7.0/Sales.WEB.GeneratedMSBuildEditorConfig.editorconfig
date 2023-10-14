@@ -56,6 +56,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxSZXNldFBhc3N3b3JkLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Repo/Sales/Sales.WEB/Pages/Auth/UserIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxVc2VySW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Repo/Sales/Sales.WEB/Pages/Categories/CategoriesIndex.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmllc1xDYXRlZ29yaWVzSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -108,6 +112,46 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Repo/Sales/Sales.WEB/Pages/Orders/ModifyTemporalOrder.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJzXE1vZGlmeVRlbXBvcmFsT3JkZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Repo/Sales/Sales.WEB/Pages/Orders/OrderConfirmed.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJzXE9yZGVyQ29uZmlybWVkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Repo/Sales/Sales.WEB/Pages/Orders/OrderDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJzXE9yZGVyRGV0YWlscy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Repo/Sales/Sales.WEB/Pages/Orders/OrdersIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJzXE9yZGVyc0luZGV4LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Repo/Sales/Sales.WEB/Pages/Orders/ShowCart.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJzXFNob3dDYXJ0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Repo/Sales/Sales.WEB/Pages/Products/ProductCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcUHJvZHVjdENyZWF0ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Repo/Sales/Sales.WEB/Pages/Products/ProductDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcUHJvZHVjdERldGFpbHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Repo/Sales/Sales.WEB/Pages/Products/ProductEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcUHJvZHVjdEVkaXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Repo/Sales/Sales.WEB/Pages/Products/ProductForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcUHJvZHVjdEZvcm0ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Repo/Sales/Sales.WEB/Pages/Products/ProductsIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcUHJvZHVjdHNJbmRleC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Repo/Sales/Sales.WEB/Pages/States/StateCreate.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RhdGVzXFN0YXRlQ3JlYXRlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -128,6 +172,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEF1dGhMaW5rcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Repo/Sales/Sales.WEB/Shared/CarouselView.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENhcm91c2VsVmlldy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Repo/Sales/Sales.WEB/Shared/GenericList.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEdlbmVyaWNMaXN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -138,6 +186,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Repo/Sales/Sales.WEB/Shared/Loading.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvYWRpbmcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Repo/Sales/Sales.WEB/Shared/MultipleSelector.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE11bHRpcGxlU2VsZWN0b3IucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Repo/Sales/Sales.WEB/Shared/Pagination.razor]
