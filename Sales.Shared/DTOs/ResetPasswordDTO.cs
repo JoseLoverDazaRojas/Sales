@@ -7,6 +7,10 @@
 
     #endregion Import
 
+    /// <summary>
+    /// The class ResetPasswordDTO
+    /// </summary>
+
     public class ResetPasswordDTO
     {
 

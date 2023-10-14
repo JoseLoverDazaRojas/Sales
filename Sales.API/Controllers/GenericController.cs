@@ -54,6 +54,7 @@
             return Ok(totalPages);
         }
 
+
         [HttpGet("{id}")]
         public virtual async Task<IActionResult> GetAsync(int id)
         {

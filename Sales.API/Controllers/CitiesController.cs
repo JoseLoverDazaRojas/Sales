@@ -8,7 +8,6 @@
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
     using Sales.API.Data;
-    using Sales.API.Helpers;
     using Sales.API.Interfaces;
     using Sales.Shared.DTOs;
     using Sales.Shared.Entities;
@@ -70,7 +69,6 @@
                 .Paginate(pagination)
                 .ToListAsync());
         }
-
 
         [HttpGet("totalPages")]
         public override async Task<ActionResult> GetPagesAsync([FromQuery] PaginationDTO pagination)
