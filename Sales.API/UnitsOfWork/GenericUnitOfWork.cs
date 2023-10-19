@@ -4,6 +4,7 @@
     #region Import
 
     ﻿using Sales.API.Interfaces;
+    using Sales.Shared.Entities;
     using Sales.Shared.Responses;
 
     #endregion Import
@@ -41,6 +42,10 @@
         public async Task<Response<T>> UpdateAsync(T model) => await _repository.UpdateAsync(model);
 
         public async Task DeleteAsync(int id) => await _repository.DeleteAsync(id);
+
+        public async Task<Country> GetCountryAsync(int id) => await _repository.GetCountryAsync(id);
+
+        public async Task<State> GetStateAsync(int id) => await _repository.GetStateAsync(id);
 
         #endregion Methods
 

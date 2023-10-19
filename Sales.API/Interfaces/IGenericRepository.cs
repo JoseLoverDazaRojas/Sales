@@ -1,5 +1,6 @@
 ﻿namespace Sales.API.Interfaces
 {
+    using Sales.Shared.Entities;
 
     #region Import
 
@@ -24,8 +25,12 @@
 
         public Task<Response<T>> UpdateAsync(T entity);
 
-        public Task DeleteAsync(int id);
-        
+        public Task<Response<T>> DeleteAsync(int id);
+
+        public Task<Country> GetCountryAsync(int id);
+
+        public Task<State> GetStateAsync(int id);
+
         #endregion Methods
 
     }

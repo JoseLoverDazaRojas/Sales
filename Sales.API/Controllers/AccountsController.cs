@@ -12,11 +12,11 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.IdentityModel.Tokens;
     using Sales.API.Data;
+    using Sales.API.Helpers.Interfaces;
     using Sales.Shared.DTOs;
     using Sales.Shared.Entities;
-    using Sales.Shared.Responses;
     using Sales.Shared.Helpers;
-    using Sales.API.Helpers.Interfaces;
+    using Sales.Shared.Responses;
 
     #endregion Import
 
@@ -85,7 +85,7 @@
             if (!string.IsNullOrWhiteSpace(pagination.Filter))
             {
                 queryable = queryable.Where(x => x.FirstName.ToLower().Contains(pagination.Filter.ToLower()) ||
-                                                 x.LastName.ToLower().Contains(pagination.Filter.ToLower()));
+                                                    x.LastName.ToLower().Contains(pagination.Filter.ToLower()));
             }
 
             double count = await queryable.CountAsync();

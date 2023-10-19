@@ -3,21 +3,17 @@
 
     #region Import
 
-    using System.IdentityModel.Tokens.Jwt;
-    using System.Security.Claims;
-    using System.Text;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
-    using Microsoft.IdentityModel.Tokens;
     using Sales.API.Data;
-    using Sales.Shared.DTOs;
-    using Sales.Shared.Entities;
-    using Sales.Shared.Responses;
-    using Sales.Shared.Helpers;
+    using Sales.API.Helpers;
     using Sales.API.Helpers.Interfaces;
     using Sales.API.Interfaces;
+    using Sales.Shared.DTOs;
+    using Sales.Shared.Entities;
+    using Sales.Shared.Helpers;
 
     #endregion Import
 
@@ -49,6 +45,57 @@
         #endregion Constructor
 
         #region Methods
+
+        [HttpPost("addImages")]
+        public async Task<ActionResult> PostAddImagesAsync(ImageDTO imageDTO)
+        {
+            var product = await _context.Products
+                .Include(x => x.ProductImages)
+                .FirstOrDefaultAsync(x => x.Id == imageDTO.ProductId);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            for (int i = 0; i < imageDTO.Images.Count; i++)
+            {
+                if (!imageDTO.Images[i].StartsWith("https://"))
+                {
+                    var photoProduct = Convert.FromBase64String(imageDTO.Images[i]);
+                    imageDTO.Images[i] = await _fileStorage.SaveFileAsync(photoProduct, ".jpg", "products");
+                    product.ProductImages!.Add(new ProductImage { Image = imageDTO.Images[i] });
+                }
+            }
+
+            _context.Update(product);
+            await _context.SaveChangesAsync();
+            return Ok(imageDTO);
+        }
+
+        [HttpPost("removeLastImage")]
+        public async Task<ActionResult> PostRemoveLastImageAsync(ImageDTO imageDTO)
+        {
+            var product = await _context.Products
+                .Include(x => x.ProductImages)
+                .FirstOrDefaultAsync(x => x.Id == imageDTO.ProductId);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            if (product.ProductImages is null || product.ProductImages.Count == 0)
+            {
+                return Ok();
+            }
+
+            var lastImage = product.ProductImages.LastOrDefault();
+            await _fileStorage.RemoveFileAsync(lastImage!.Image, "products");
+            product.ProductImages.Remove(lastImage);
+            _context.Update(product);
+            await _context.SaveChangesAsync();
+            imageDTO.Images = product.ProductImages.Select(x => x.Image).ToList();
+            return Ok(imageDTO);
+        }
 
         [AllowAnonymous]
         [HttpGet]
@@ -103,62 +150,6 @@
             return Ok(product);
         }
 
-        [HttpPost("addImages")]
-        public async Task<ActionResult> PostAddImagesAsync(ImageDTO imageDTO)
-        {
-            var product = await _context.Products
-                .Include(x => x.ProductImages)
-                .FirstOrDefaultAsync(x => x.Id == imageDTO.ProductId);
-            if (product == null)
-            {
-                return NotFound();
-            }
-
-            if (product.ProductImages is null)
-            {
-                product.ProductImages = new List<ProductImage>();
-            }
-
-            for (int i = 0; i < imageDTO.Images.Count; i++)
-            {
-                if (!imageDTO.Images[i].StartsWith("https://"))
-                {
-                    var photoProduct = Convert.FromBase64String(imageDTO.Images[i]);
-                    imageDTO.Images[i] = await _fileStorage.SaveFileAsync(photoProduct, ".jpg", "products");
-                    product.ProductImages!.Add(new ProductImage { Image = imageDTO.Images[i] });
-                }
-            }
-
-            _context.Update(product);
-            await _context.SaveChangesAsync();
-            return Ok(imageDTO);
-        }
-
-        [HttpPost("removeLastImage")]
-        public async Task<ActionResult> PostRemoveLastImageAsync(ImageDTO imageDTO)
-        {
-            var product = await _context.Products
-                .Include(x => x.ProductImages)
-                .FirstOrDefaultAsync(x => x.Id == imageDTO.ProductId);
-            if (product == null)
-            {
-                return NotFound();
-            }
-
-            if (product.ProductImages is null || product.ProductImages.Count == 0)
-            {
-                return Ok();
-            }
-
-            var lastImage = product.ProductImages.LastOrDefault();
-            await _fileStorage.RemoveFileAsync(lastImage!.Image, "products");
-            product.ProductImages.Remove(lastImage);
-            _context.Update(product);
-            await _context.SaveChangesAsync();
-            imageDTO.Images = product.ProductImages.Select(x => x.Image).ToList();
-            return Ok(imageDTO);
-        }
-
         [HttpPost("full")]
         public async Task<IActionResult> PostFullAsync(ProductDTO productDTO)
         {
@@ -193,14 +184,9 @@
                 await _context.SaveChangesAsync();
                 return Ok(productDTO);
             }
-            catch (DbUpdateException dbUpdateException)
+            catch (DbUpdateException)
             {
-                if (dbUpdateException.InnerException!.Message.Contains("duplicate"))
-                {
-                    return BadRequest("Ya existe un producto con el mismo nombre.");
-                }
-
-                return BadRequest(dbUpdateException.Message);
+                return BadRequest("Ya existe un producto con el mismo nombre.");
             }
             catch (Exception exception)
             {
@@ -225,20 +211,18 @@
                 product.Description = productDTO.Description;
                 product.Price = productDTO.Price;
                 product.Stock = productDTO.Stock;
-                product.ProductCategories = productDTO.ProductCategoryIds!.Select(x => new ProductCategory { CategoryId = x }).ToList();
+                if (productDTO.ProductCategoryIds != null && productDTO.ProductCategoryIds.Count > 0)
+                {
+                    product.ProductCategories = productDTO.ProductCategoryIds!.Select(x => new ProductCategory { CategoryId = x }).ToList();
+                }
 
                 _context.Update(product);
                 await _context.SaveChangesAsync();
                 return Ok(productDTO);
             }
-            catch (DbUpdateException dbUpdateException)
+            catch (DbUpdateException)
             {
-                if (dbUpdateException.InnerException!.Message.Contains("duplicate"))
-                {
-                    return BadRequest("Ya existe un producto con el mismo nombre.");
-                }
-
-                return BadRequest(dbUpdateException.Message);
+                return BadRequest("Ya existe un producto con el mismo nombre.");
             }
             catch (Exception exception)
             {

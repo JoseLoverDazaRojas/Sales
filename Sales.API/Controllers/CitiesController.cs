@@ -8,7 +8,7 @@
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
     using Sales.API.Data;
-    using Sales.API.Interfaces;
+    using Sales.API.Interfaces;    
     using Sales.Shared.DTOs;
     using Sales.Shared.Entities;
     using Sales.Shared.Helpers;

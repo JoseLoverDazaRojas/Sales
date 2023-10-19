@@ -3,7 +3,7 @@
 
     #region Import
 
-    ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+    using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
@@ -27,6 +27,7 @@
 
         #region Attributes
 
+        private readonly IGenericUnitOfWork<State> _unitOfWork;
         private readonly DataContext _context;
 
         #endregion Attributes
@@ -35,6 +36,7 @@
 
         public StatesController(IGenericUnitOfWork<State> unitOfWork, DataContext context) : base(unitOfWork, context)
         {
+            _unitOfWork = unitOfWork;
             _context = context;
         }
 
@@ -91,9 +93,7 @@
         [HttpGet("{id}")]
         public override async Task<IActionResult> GetAsync(int id)
         {
-            var state = await _context.States
-                .Include(s => s.Cities)
-                .FirstOrDefaultAsync(s => s.Id == id);
+            var state = await _unitOfWork.GetStateAsync(id);
             if (state == null)
             {
                 return NotFound();

@@ -6,6 +6,7 @@
     using Microsoft.EntityFrameworkCore;
     using Sales.API.Data;
     using Sales.API.Interfaces;
+    using Sales.Shared.Entities;
     using Sales.Shared.Responses;
 
     #endregion Import
@@ -91,14 +92,23 @@
             }
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task<Response<T>> DeleteAsync(int id)
         {
             var row = await _entity.FindAsync(id);
             if (row != null)
             {
                 _entity.Remove(row);
                 await _context.SaveChangesAsync();
+                return new Response<T>
+                {
+                    WasSuccess = true,
+                };
             }
+            return new Response<T>
+            {
+                WasSuccess = false,
+                Message = "Registro no encontrado"
+            };
         }
 
         private Response<T> ExceptionResponse(Exception exception)
@@ -128,6 +138,23 @@
                     Message = dbUpdateException.InnerException.Message
                 };
             }
+        }
+
+        public async Task<Country> GetCountryAsync(int id)
+        {
+            var country = await _context.Countries
+                    .Include(c => c.States!)
+                    .ThenInclude(s => s.Cities)
+                    .FirstOrDefaultAsync(c => c.Id == id);
+            return country!;
+        }
+
+        public async Task<State> GetStateAsync(int id)
+        {
+            var state = await _context.States
+                    .Include(s => s.Cities)
+                    .FirstOrDefaultAsync(c => c.Id == id);
+            return state!;
         }
 
         #endregion Methods
