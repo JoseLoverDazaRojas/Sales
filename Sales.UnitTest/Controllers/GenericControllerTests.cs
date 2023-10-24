@@ -3,12 +3,14 @@
 
     #region Import
 
+    using System;
+    using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
     using Moq;
     using Sales.API.Controllers;
     using Sales.API.Data;
-    using Sales.API.Interfaces;    
+    using Sales.API.Interfaces;
     using Sales.Shared.DTOs;
     using Sales.Shared.Entities;
     using Sales.Shared.Responses;
@@ -50,7 +52,7 @@
             /// Arrange
             using var context = new DataContext(_options);
             var controller = new GenericController<Category>(_unitOfWorkMock.Object, context);
-            var pagination = new PaginationDTO { Filter = "some" };
+            var pagination = new PaginationDTO();
 
             /// Act
             var result = await controller.GetAsync(pagination) as OkObjectResult;
@@ -61,6 +63,7 @@
 
             /// Clean up (if needed)
             context.Database.EnsureDeleted();
+            context.Dispose();
         }
 
         [TestMethod]
@@ -69,7 +72,7 @@
             /// Arrange
             using var context = new DataContext(_options);
             var controller = new GenericController<Category>(_unitOfWorkMock.Object, context);
-            var pagination = new PaginationDTO { Filter = "Some" };
+            var pagination = new PaginationDTO();
 
             /// Act
             var result = await controller.GetPagesAsync(pagination) as OkObjectResult;
@@ -80,6 +83,7 @@
 
             /// Clean up (if needed)
             context.Database.EnsureDeleted();
+            context.Dispose();
         }
 
         [TestMethod]
@@ -98,20 +102,20 @@
 
             /// Clean up (if needed)
             context.Database.EnsureDeleted();
+            context.Dispose();
         }
 
         [TestMethod]
-        public async Task GetAsync_ReturnsRecord()
+        public async Task GetAsync_ReturnsOkWhenEntityFound()
         {
             /// Arrange
             using var context = new DataContext(_options);
-            var category = new Category { Id = 1, Name = "test" };
-            var response = new Response<Category> { WasSuccess = true };
+            var category = new Category { Id = 1, Name = "Some" };
             _unitOfWorkMock.Setup(x => x.GetAsync(category.Id)).ReturnsAsync(category);
             var controller = new GenericController<Category>(_unitOfWorkMock.Object, context);
 
             /// Act
-            var result = await controller.GetAsync(1) as OkObjectResult;
+            var result = await controller.GetAsync(category.Id) as OkObjectResult;
 
             /// Assert
             Assert.IsNotNull(result);
@@ -120,6 +124,7 @@
 
             /// Clean up (if needed)
             context.Database.EnsureDeleted();
+            context.Dispose();
         }
 
         [TestMethod]
@@ -127,7 +132,7 @@
         {
             /// Arrange
             using var context = new DataContext(_options);
-            var category = new Category { Id = 1, Name = "test" };
+            var category = new Category { Id = 1, Name = "Some" };
             var response = new Response<Category> { WasSuccess = true };
             _unitOfWorkMock.Setup(x => x.AddAsync(category)).ReturnsAsync(response);
             var controller = new GenericController<Category>(_unitOfWorkMock.Object, context);
@@ -142,6 +147,7 @@
 
             /// Clean up (if needed)
             context.Database.EnsureDeleted();
+            context.Dispose();
         }
 
         [TestMethod]
@@ -149,7 +155,7 @@
         {
             /// Arrange
             using var context = new DataContext(_options);
-            var category = new Category { Id = 1, Name = "test" };
+            var category = new Category { Id = 1, Name = "Some" };
             var response = new Response<Category> { WasSuccess = false };
             _unitOfWorkMock.Setup(x => x.AddAsync(category)).ReturnsAsync(response);
             var controller = new GenericController<Category>(_unitOfWorkMock.Object, context);
@@ -164,6 +170,7 @@
 
             /// Clean up (if needed)
             context.Database.EnsureDeleted();
+            context.Dispose();
         }
 
         [TestMethod]
@@ -171,7 +178,7 @@
         {
             /// Arrange
             using var context = new DataContext(_options);
-            var category = new Category { Id = 1, Name = "test" };
+            var category = new Category { Id = 1, Name = "Some" };
             var response = new Response<Category> { WasSuccess = true };
             _unitOfWorkMock.Setup(x => x.UpdateAsync(category)).ReturnsAsync(response);
             var controller = new GenericController<Category>(_unitOfWorkMock.Object, context);
@@ -186,6 +193,7 @@
 
             /// Clean up (if needed)
             context.Database.EnsureDeleted();
+            context.Dispose();
         }
 
         [TestMethod]
@@ -193,7 +201,7 @@
         {
             /// Arrange
             using var context = new DataContext(_options);
-            var category = new Category { Id = 1, Name = "test" };
+            var category = new Category { Id = 1, Name = "Some" };
             var response = new Response<Category> { WasSuccess = false };
             _unitOfWorkMock.Setup(x => x.UpdateAsync(category)).ReturnsAsync(response);
             var controller = new GenericController<Category>(_unitOfWorkMock.Object, context);
@@ -208,6 +216,7 @@
 
             /// Clean up (if needed)
             context.Database.EnsureDeleted();
+            context.Dispose();
         }
 
         [TestMethod]
@@ -229,6 +238,7 @@
 
             /// Clean up (if needed)
             context.Database.EnsureDeleted();
+            context.Dispose();
         }
 
         [TestMethod]
@@ -248,6 +258,7 @@
 
             /// Clean up (if needed)
             context.Database.EnsureDeleted();
+            context.Dispose();
         }
 
         #endregion Methods

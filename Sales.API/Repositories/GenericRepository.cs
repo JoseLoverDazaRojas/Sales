@@ -47,12 +47,12 @@
             var row = await _entity.FindAsync(id);
             return row!;
         }
-        
-        public async Task<Response<T>> AddAsync(T entity)
+
+        public async Task<Response<T>> UpdateAsync(T entity)
         {
-            _context.Add(entity);
             try
             {
+                _context.Update(entity);
                 await _context.SaveChangesAsync();
                 return new Response<T>
                 {
@@ -70,11 +70,11 @@
             }
         }
 
-        public async Task<Response<T>> UpdateAsync(T entity)
+        public async Task<Response<T>> AddAsync(T entity)
         {
+            _context.Add(entity);
             try
             {
-                _context.Update(entity);
                 await _context.SaveChangesAsync();
                 return new Response<T>
                 {
@@ -110,7 +110,7 @@
                 Message = "Registro no encontrado"
             };
         }
-
+          
         private Response<T> ExceptionResponse(Exception exception)
         {
             return new Response<T>
@@ -143,17 +143,17 @@
         public async Task<Country> GetCountryAsync(int id)
         {
             var country = await _context.Countries
-                    .Include(c => c.States!)
-                    .ThenInclude(s => s.Cities)
-                    .FirstOrDefaultAsync(c => c.Id == id);
+                .Include(c => c.States!)
+                .ThenInclude(s => s.Cities)
+                .FirstOrDefaultAsync(c => c.Id == id);
             return country!;
         }
 
         public async Task<State> GetStateAsync(int id)
         {
             var state = await _context.States
-                    .Include(s => s.Cities)
-                    .FirstOrDefaultAsync(c => c.Id == id);
+                .Include(s => s.Cities)
+                .FirstOrDefaultAsync(c => c.Id == id);
             return state!;
         }
 

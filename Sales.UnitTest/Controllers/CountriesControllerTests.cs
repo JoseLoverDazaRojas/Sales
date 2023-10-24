@@ -3,6 +3,8 @@
 
     #region Import
 
+    using System;
+    using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
     using Moq;
@@ -59,6 +61,7 @@
 
             /// Clean up (if needed)
             context.Database.EnsureDeleted();
+            context.Dispose();
         }
 
         [TestMethod]
@@ -78,6 +81,7 @@
 
             /// Clean up (if needed)
             context.Database.EnsureDeleted();
+            context.Dispose();
         }
 
         [TestMethod]
@@ -97,6 +101,7 @@
 
             /// Clean up (if needed)
             context.Database.EnsureDeleted();
+            context.Dispose();
         }
 
         [TestMethod]
@@ -115,8 +120,8 @@
 
             /// Clean up (if needed)
             context.Database.EnsureDeleted();
+            context.Dispose();
         }
-
 
         [TestMethod]
         public async Task GetAsync_ReturnsOkWhenCountryFound()
@@ -137,6 +142,7 @@
 
             /// Clean up (if needed)
             context.Database.EnsureDeleted();
+            context.Dispose();
         }
 
         #endregion Methods

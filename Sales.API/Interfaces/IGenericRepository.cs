@@ -1,9 +1,9 @@
 ﻿namespace Sales.API.Interfaces
 {
-    using Sales.Shared.Entities;
 
     #region Import
 
+    using Sales.Shared.Entities;
     using Sales.Shared.Responses;
 
     #endregion Import

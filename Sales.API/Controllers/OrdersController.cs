@@ -3,21 +3,16 @@
 
     #region Import
 
-    using System.IdentityModel.Tokens.Jwt;
-    using System.Security.Claims;
-    using System.Text;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
-    using Microsoft.IdentityModel.Tokens;
     using Sales.API.Data;
+    using Sales.API.Helpers.Interfaces;
     using Sales.Shared.DTOs;
     using Sales.Shared.Entities;
-    using Sales.Shared.Responses;
-    using Sales.Shared.Helpers;
-    using Sales.API.Helpers.Interfaces;
     using Sales.Shared.Enums;
+    using Sales.Shared.Helpers;
 
     #endregion Import
 
@@ -51,89 +46,6 @@
         #endregion Constructor
 
         #region Methods
-
-        [HttpGet("{id:int}")]
-        public async Task<ActionResult> Get(int id)
-        {
-            var sale = await _context.Orders
-                .Include(s => s.User!)
-                .ThenInclude(u => u.City!)
-                .ThenInclude(c => c.State!)
-                .ThenInclude(s => s.Country)
-                .Include(s => s.OrderDetails!)
-                .ThenInclude(sd => sd.Product)
-                .ThenInclude(p => p.ProductImages)
-                .FirstOrDefaultAsync(s => s.Id == id);
-
-            if (sale == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(sale);
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> GetAsync([FromQuery] PaginationDTO pagination)
-        {
-            var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == User.Identity!.Name);
-            if (user == null)
-            {
-                return BadRequest("User not valid.");
-            }
-
-            var queryable = _context.Orders
-                .Include(s => s.User)
-                .Include(s => s.OrderDetails)
-                .ThenInclude(sd => sd.Product)
-                .AsQueryable();
-
-            var isAdmin = await _userHelper.IsUserInRoleAsync(user, UserType.Admin.ToString());
-            if (!isAdmin)
-            {
-                queryable = queryable.Where(s => s.User!.Email == User.Identity!.Name);
-            }
-
-            return Ok(await queryable
-                .OrderByDescending(x => x.Date)
-                .Paginate(pagination)
-                .ToListAsync());
-        }
-
-        [HttpGet("totalPages")]
-        public async Task<IActionResult> GetPagesAsync([FromQuery] PaginationDTO pagination)
-        {
-            var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == User.Identity!.Name);
-            if (user == null)
-            {
-                return BadRequest("User not valid.");
-            }
-
-            var queryable = _context.Orders
-                .AsQueryable();
-
-            var isAdmin = await _userHelper.IsUserInRoleAsync(user, UserType.Admin.ToString());
-            if (!isAdmin)
-            {
-                queryable = queryable.Where(s => s.User!.Email == User.Identity!.Name);
-            }
-
-            double count = await queryable.CountAsync();
-            double totalPages = Math.Ceiling(count / pagination.RecordsNumber);
-            return Ok(totalPages);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> PostAsync(OrderDTO saleDTO)
-        {
-            var response = await _ordersHelper.ProcessOrderAsync(User.Identity!.Name!, saleDTO.Remarks);
-            if (response.WasSuccess)
-            {
-                return NoContent();
-            }
-
-            return BadRequest(response.Message);
-        }
 
         [HttpPut]
         public async Task<ActionResult> PutAsync(OrderDTO orderDTO)
@@ -180,6 +92,88 @@
                 }
             }
             await _context.SaveChangesAsync();
+        }
+
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult> GetAsync(int id)
+        {
+            var sale = await _context.Orders
+                .Include(s => s.User!)
+                .ThenInclude(u => u.City!)
+                .ThenInclude(c => c.State!)
+                .ThenInclude(s => s.Country)
+                .Include(s => s.OrderDetails!)
+                .ThenInclude(sd => sd.Product)
+                .ThenInclude(p => p.ProductImages)
+                .FirstOrDefaultAsync(s => s.Id == id);
+
+            if (sale == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(sale);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAsync([FromQuery] PaginationDTO pagination)
+        {
+            var user = await _userHelper.GetUserAsync(User.Identity!.Name!);
+            if (user == null)
+            {
+                return BadRequest("User not valid.");
+            }
+
+            var queryable = _context.Orders
+                .Include(s => s.User)
+                .Include(s => s.OrderDetails)
+                .ThenInclude(sd => sd.Product)
+                .AsQueryable();
+
+            var isAdmin = await _userHelper.IsUserInRoleAsync(user, UserType.Admin.ToString());
+            if (!isAdmin)
+            {
+                queryable = queryable.Where(s => s.User!.Email == User.Identity!.Name);
+            }
+
+            return Ok(await queryable
+                .OrderByDescending(x => x.Date)
+                .Paginate(pagination)
+                .ToListAsync());
+        }
+
+        [HttpGet("totalPages")]
+        public async Task<IActionResult> GetPagesAsync([FromQuery] PaginationDTO pagination)
+        {
+            var user = await _userHelper.GetUserAsync(User.Identity!.Name!);
+            if (user == null)
+            {
+                return BadRequest("User not valid.");
+            }
+
+            var queryable = _context.Orders.AsQueryable();
+
+            var isAdmin = await _userHelper.IsUserInRoleAsync(user, UserType.Admin.ToString());
+            if (!isAdmin)
+            {
+                queryable = queryable.Where(s => s.User!.Email == User.Identity!.Name);
+            }
+
+            double count = await queryable.CountAsync();
+            double totalPages = Math.Ceiling(count / pagination.RecordsNumber);
+            return Ok(totalPages);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> PostAsync(OrderDTO saleDTO)
+        {
+            var response = await _ordersHelper.ProcessOrderAsync(User.Identity!.Name!, saleDTO.Remarks);
+            if (response.WasSuccess)
+            {
+                return NoContent();
+            }
+
+            return BadRequest(response.Message);
         }
 
         #endregion Methods

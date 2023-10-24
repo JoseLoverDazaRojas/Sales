@@ -33,9 +33,9 @@
 
         #region Methods
 
-        public async Task<IEnumerable<T>> GetAsync() => await _repository.GetAsync();
-
         public async Task<T> GetAsync(int id) => await _repository.GetAsync(id);
+
+        public async Task<IEnumerable<T>> GetAsync() => await _repository.GetAsync();
 
         public async Task<Response<T>> AddAsync(T model) => await _repository.AddAsync(model);
 
