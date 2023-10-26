@@ -3,22 +3,28 @@
 
     #region Import
 
-    using System.Security.Claims;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
     using Microsoft.AspNetCore.Http;
-    using Microsoft.AspNetCore.Identity;
-    using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Routing;
+    using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Moq;
     using Sales.API.Controllers;
     using Sales.API.Data;
-    using Sales.API.Helpers.Interfaces;
-    using Sales.Shared.DTOs;
+    using Sales.API.Helpers;
     using Sales.Shared.Entities;
-    using Sales.Shared.Enums;
+    using Sales.Shared.DTOs;
     using Sales.Shared.Responses;
+    using Microsoft.AspNetCore.Identity;
+    using System.Security.Claims;
+    using Sales.Shared.Enums;
     using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
+    using Sales.API.Helpers.Interfaces;
 
     #endregion Import
 
@@ -112,6 +118,7 @@
         public void Cleanup()
         {
             _context.Database.EnsureDeleted();
+            _context.Dispose();
         }
 
         [TestMethod]
@@ -181,8 +188,6 @@
         {
             /// Arrange
             var userName = "test@example.com";
-            _mockUserHelper.Setup(x => x.GetUserAsync(userName))
-                .ReturnsAsync((User)null);
 
             /// Act
             var result = await _controller.RecoverPassword(new EmailDTO { Email = userName });
@@ -209,7 +214,7 @@
             /// Act
             var result = await _controller.RecoverPassword(new EmailDTO { Email = user.Email });
 
-            // Assert
+            /// Assert
             Assert.IsInstanceOfType(result, typeof(NoContentResult));
             _mockUserHelper.Verify(x => x.GetUserAsync(user.Email), Times.Once());
             _mockUserHelper.Verify(x => x.GeneratePasswordResetTokenAsync(user), Times.Once());
@@ -246,10 +251,6 @@
         [TestMethod]
         public async Task ResetPassword_UserNotFound_ReturnsNotFound()
         {
-            /// Arrange
-            _mockUserHelper.Setup(x => x.GetUserAsync(It.IsAny<string>()))
-                .ReturnsAsync((User)null);
-
             /// Act
             var result = await _controller.ResetPassword(new ResetPasswordDTO());
 
@@ -326,14 +327,12 @@
             /// Arrange
             var userName = "testuser";
             _controller.ControllerContext = GetControllerContext(userName);
-            _mockUserHelper.Setup(x => x.GetUserAsync(userName)).ReturnsAsync((User)null);
 
             /// Act
             var result = await _controller.ChangePasswordAsync(new ChangePasswordDTO());
 
             /// Assert
             Assert.IsInstanceOfType(result, typeof(NotFoundResult));
-            _mockUserHelper.Verify(x => x.GetUserAsync(userName), Times.Once());
         }
 
         [TestMethod]
@@ -357,6 +356,24 @@
             Assert.IsInstanceOfType(result, typeof(NoContentResult));
             _mockUserHelper.Verify(x => x.GetUserAsync(userName), Times.Once());
             _mockUserHelper.Verify(x => x.ChangePasswordAsync(It.IsAny<User>(), It.IsAny<string>(), It.IsAny<string>()), Times.Once());
+        }
+
+        private ControllerContext GetControllerContext(string userName)
+        {
+            var claims = new[]
+            {
+                new Claim(ClaimTypes.Name, userName)
+            };
+            var identity = new ClaimsIdentity(claims, "test");
+            var claimsPrincipal = new ClaimsPrincipal(identity);
+            var httpContext = new DefaultHttpContext
+            {
+                User = claimsPrincipal
+            };
+            return new ControllerContext
+            {
+                HttpContext = httpContext
+            };
         }
 
         [TestMethod]
@@ -395,15 +412,12 @@
             /// Arrange
             var userName = "testuser";
             _controller.ControllerContext = GetControllerContext(userName);
-            _mockUserHelper.Setup(x => x.GetUserAsync(userName))
-                .ReturnsAsync((User)null);
 
             /// Act
             var result = await _controller.PutAsync(new User());
 
             /// Assert
             Assert.IsInstanceOfType(result, typeof(NotFoundResult));
-            _mockUserHelper.Verify(x => x.GetUserAsync(userName), Times.Once());
         }
 
         [TestMethod]
@@ -901,24 +915,6 @@
             Assert.IsInstanceOfType(result, typeof(NoContentResult));
             _mockUserHelper.Verify(x => x.GetUserAsync(guid), Times.Once());
             _mockUserHelper.Verify(x => x.ConfirmEmailAsync(It.IsAny<User>(), It.IsAny<string>()), Times.Once());
-        }
-
-        private ControllerContext GetControllerContext(string userName)
-        {
-            var claims = new[]
-            {
-                new Claim(ClaimTypes.Name, userName)
-            };
-            var identity = new ClaimsIdentity(claims, "test");
-            var claimsPrincipal = new ClaimsPrincipal(identity);
-            var httpContext = new DefaultHttpContext
-            {
-                User = claimsPrincipal
-            };
-            return new ControllerContext
-            {
-                HttpContext = httpContext
-            };
         }
 
         #endregion Methods
