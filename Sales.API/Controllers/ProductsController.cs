@@ -8,7 +8,6 @@
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
     using Sales.API.Data;
-    using Sales.API.Helpers;
     using Sales.API.Helpers.Interfaces;
     using Sales.API.Interfaces;
     using Sales.Shared.DTOs;

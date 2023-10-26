@@ -10,14 +10,13 @@
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
+    using Moq;
     using Sales.API.Controllers;
     using Sales.API.Data;
     using Sales.API.Interfaces;
     using Sales.Shared.DTOs;
     using Sales.Shared.Entities;
-    using System.Security.Principal;
     using Sales.UnitTest.Shared;
-    using Moq;
 
     #endregion Import
 
@@ -31,9 +30,10 @@
 
         #region Attributes
 
-        private TemporalOrdersController _controller;
-        private DataContext _context;
-        private DbContextOptions<DataContext> _options;
+        private TemporalOrdersController _controller = null!;
+        private DataContext _context = null!;
+        private DbContextOptions<DataContext> _options = null!;
+        private Mock<IGenericUnitOfWork<TemporalOrder>> _mockUnitOfWork = null!;
 
         #endregion Attributes
 
@@ -51,8 +51,8 @@
                 .Options;
 
             _context = new DataContext(_options);
-            var mockUnitOfWork = new Mock<IGenericUnitOfWork<TemporalOrder>>();
-            _controller = new TemporalOrdersController(mockUnitOfWork.Object, _context);
+            _mockUnitOfWork = new Mock<IGenericUnitOfWork<TemporalOrder>>();
+            _controller = new TemporalOrdersController(_mockUnitOfWork.Object, _context);
 
             var claims = new List<Claim>
             {
@@ -86,7 +86,6 @@
 
             /// Assert
             Assert.IsInstanceOfType(result, typeof(OkObjectResult));
-            var okResult = result as OkObjectResult;
         }
 
         [TestMethod]
@@ -206,12 +205,13 @@
                 .Options;
 
             var exceptionalContext = new ExceptionalDataContext(options);
+            var email = "test@example.com";
 
             exceptionalContext.Products.Add(new Product { Id = 1, Name = "Some", Description = "Some" });
-            exceptionalContext.Users.Add(new User { Email = "test@example.com", Address = "Some", Document = "Some", FirstName = "John", LastName = "Doe" });
+            exceptionalContext.Users.Add(new User { Email = email, Address = "Some", Document = "Some", FirstName = "John", LastName = "Doe" });
             exceptionalContext.SaveChanges();
 
-            var controller = CreateControllerWithMockedUserEmail("test@test.com", exceptionalContext);
+            var controller = CreateControllerWithMockedUserEmail(email, exceptionalContext);
 
             var temporalOrderDTO = new TemporalOrderDTO { ProductId = 1, Quantity = 5, Remarks = "TestRemarks" };
 
@@ -225,17 +225,72 @@
 
         private TemporalOrdersController CreateControllerWithMockedUserEmail(string email, DataContext context)
         {
-            var mockIdentity = new Mock<IIdentity>();
-            mockIdentity.Setup(x => x.Name).Returns(email);
-            var principal = new Mock<IPrincipal>();
-            principal.Setup(x => x.Identity).Returns(mockIdentity.Object);
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, email)
+            };
+
+            var identity = new ClaimsIdentity(claims, "TestAuthType");
+            var user = new ClaimsPrincipal(identity);
 
             var controller = new TemporalOrdersController(null, context);
             controller.ControllerContext = new ControllerContext
             {
-                HttpContext = new DefaultHttpContext { User = (ClaimsPrincipal)principal.Object }
+                HttpContext = new DefaultHttpContext { User = user }
             };
             return controller;
+        }
+
+        [TestMethod]
+        public async Task GetAsync_WithUserHavingData_ReturnsCorrectData()
+        {
+            /// Arrange
+            var product = new Product { Id = 1, Name = "Some", Description = "Some" };
+            _context.Products.Add(product);
+            await _context.SaveChangesAsync();
+
+            var user = new User { Email = "test@example.com", Address = "Some", Document = "Some", FirstName = "John", LastName = "Doe" };
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+
+            var temporalOrder = new TemporalOrder { Product = product, Quantity = 1, Remarks = "Some", User = user };
+            _context.TemporalOrders.Add(temporalOrder);
+            await _context.SaveChangesAsync();
+
+            /// Act
+            var result = await _controller.GetAsync();
+
+            /// Assert
+            Assert.IsInstanceOfType(result, typeof(OkObjectResult));
+            var okResult = result as OkObjectResult;
+            var data = okResult!.Value as List<TemporalOrder>;
+            Assert.AreEqual(1, data!.Count);
+        }
+
+        [TestMethod]
+        public async Task GetCountAsync_WithUserHavingData_ReturnsCorrectCount()
+        {
+            /// Arrange
+            var product = new Product { Id = 1, Name = "Some", Description = "Some" };
+            _context.Products.Add(product);
+            await _context.SaveChangesAsync();
+
+            var user = new User { Email = "test@example.com", Address = "Some", Document = "Some", FirstName = "John", LastName = "Doe" };
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+
+            _context.TemporalOrders.Add(new TemporalOrder { Product = product, Quantity = 1, Remarks = "Some", User = user });
+            _context.TemporalOrders.Add(new TemporalOrder { Product = product, Quantity = 2, Remarks = "Any", User = user });
+            await _context.SaveChangesAsync();
+
+            /// Act
+            var result = await _controller.GetCountAsync();
+
+            /// Assert
+            Assert.IsInstanceOfType(result, typeof(OkObjectResult));
+            var okResult = result as OkObjectResult;
+            var count = (Single)okResult!.Value!;
+            Assert.AreEqual(3, count);
         }
 
         #endregion Methods

@@ -3,6 +3,12 @@
 
     #region Import
 
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Security.Claims;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
     using Moq;
@@ -12,6 +18,7 @@
     using Sales.API.Interfaces;
     using Sales.Shared.DTOs;
     using Sales.Shared.Entities;
+    using Sales.UnitTest.Shared;
 
     #endregion Import
 
@@ -53,6 +60,7 @@
         public void Cleanup()
         {
             _context.Database.EnsureDeleted();
+            _context.Dispose();
         }
 
         [TestMethod]
@@ -189,7 +197,7 @@
             var okResult = result as OkObjectResult;
             Assert.IsNotNull(okResult);
             var products = okResult.Value as List<Product>;
-            Assert.AreEqual(2, products.Count);
+            Assert.AreEqual(2, products!.Count);
         }
 
         [TestMethod]
@@ -460,16 +468,21 @@
         }
 
         [TestMethod]
-        public async Task PutFullAsync_DuplicateName_ReturnsBadRequest()
+        public async Task PutFullAsync_GeneralException_ReturnsBadRequest()
         {
             /// Arrange
-            var product = new Product { Id = 1, Name = "OriginalName", Description = "Description" };
-            _context.Products.Add(product);
-            _context.SaveChanges();
+            var options = new DbContextOptionsBuilder<DataContext>()
+                .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+                .Options;
 
-            /// Mock the DbUpdateException by adding a product with the same name
-            _context.Products.Add(new Product { Id = 2, Name = "DuplicateName", Description = "Description" });
-            _context.SaveChanges();
+            var exceptionalContext = new ExceptionalDataContext(options);
+            var email = "test@example.com";
+
+            exceptionalContext.Products.Add(new Product { Id = 1, Name = "OriginalName", Description = "Description" });
+            exceptionalContext.Products.Add(new Product { Id = 2, Name = "DuplicateName", Description = "Description" });
+            exceptionalContext.SaveChanges();
+
+            var controller = CreateControllerWithMockedUserEmail(email, exceptionalContext);
 
             var productDTO = new ProductDTO
             {
@@ -481,51 +494,65 @@
             };
 
             /// Act
-            var result = await _controller.PutFullAsync(productDTO);
+            var result = await controller.PutFullAsync(productDTO);
 
             /// Assert
-            ///var badRequestResult = result as BadRequestObjectResult;
-            ///Assert.IsNotNull(badRequestResult);
-            ///Assert.AreEqual("Ya existe un producto con el mismo nombre.", badRequestResult.Value);
-
-            var badRequestResult = result as OkObjectResult;
+            var badRequestResult = result as BadRequestObjectResult;
             Assert.IsNotNull(badRequestResult);
+            Assert.AreEqual("Test Exception", badRequestResult.Value);
         }
 
         [TestMethod]
-        public async Task PutFullAsync_Exception_ReturnsBadRequest()
+        public async Task PutFullAsync_DbUpdateException_ReturnsBadRequest()
         {
             /// Arrange
-            var product = new Product { Id = 1, Name = "OriginalName", Description = "Description" };
-            _context.Products.Add(product);
-            _context.SaveChanges();
+            var options = new DbContextOptionsBuilder<DataContext>()
+                .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+                .Options;
 
-            _mockFileStorage.Setup(fs => fs.SaveFileAsync(It.IsAny<byte[]>(), ".jpg", "products"))
-                .Throws(new Exception("Test exception"));
+            var exceptionalContext = new ExceptionalDBUpdateDataContext(options);
+            var email = "test@example.com";
+
+            exceptionalContext.Products.Add(new Product { Id = 1, Name = "OriginalName", Description = "Description" });
+            exceptionalContext.Products.Add(new Product { Id = 2, Name = "DuplicateName", Description = "Description" });
+            exceptionalContext.SaveChanges();
+
+            var controller = CreateControllerWithMockedUserEmail(email, exceptionalContext);
 
             var productDTO = new ProductDTO
             {
                 Id = 1,
-                Name = "TestProduct",
+                Name = "DuplicateName",
                 Description = "Description",
                 Price = 100.00M,
-                Stock = 10,
-                ProductImages = new List<string> { Convert.ToBase64String(new byte[] { 123, 45, 67 }) },
-                ProductCategoryIds = new List<int> { 1 }
+                Stock = 10
             };
 
             /// Act
-            var result = await _controller.PutFullAsync(productDTO);
+            var result = await controller.PutFullAsync(productDTO);
 
             /// Assert
-            ///Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
-            ///var badRequestResult = result as BadRequestObjectResult;
-            ///Assert.AreEqual("Test exception", badRequestResult!.Value);
-            ///_mockFileStorage.Verify(x => x.SaveFileAsync(It.IsAny<byte[]>(), ".jpg", "products"), Times.Once());
-
-            /// Assert
-            var badRequestResult = result as OkObjectResult;
+            var badRequestResult = result as BadRequestObjectResult;
             Assert.IsNotNull(badRequestResult);
+            Assert.AreEqual("Ya existe un producto con el mismo nombre.", badRequestResult.Value);
+        }
+
+        private ProductsController CreateControllerWithMockedUserEmail(string email, DataContext context)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, email)
+            };
+
+            var identity = new ClaimsIdentity(claims, "TestAuthType");
+            var user = new ClaimsPrincipal(identity);
+
+            var controller = new ProductsController(null, context, null);
+            controller.ControllerContext = new ControllerContext
+            {
+                HttpContext = new DefaultHttpContext { User = user }
+            };
+            return controller;
         }
 
         #endregion Methods

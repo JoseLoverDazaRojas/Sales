@@ -9,16 +9,15 @@
     #endregion Import
 
     /// <summary>
-    /// The class ExceptionalDataContext
+    /// The class ExceptionalDBUpdateDataContext
     /// </summary>
 
-    public class ExceptionalDataContext : DataContext
+    public class ExceptionalDBUpdateDataContext : DataContext
     {
 
         #region Constructor
 
-        public ExceptionalDataContext(DbContextOptions<DataContext> options)
-            : base(options)
+        public ExceptionalDBUpdateDataContext(DbContextOptions<DataContext> options) : base(options)
         {
         }
 
@@ -28,7 +27,7 @@
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            throw new InvalidOperationException("Test Exception");
+            throw new DbUpdateException("Test Exception");
         }
 
         #endregion Methods
